@@ -1,23 +1,16 @@
-import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import Banner from './components/banner';
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <Banner 
+        title="Join the Desi PUBG revolution" 
+        description="Conquer the battleground with 'Desi Power'!" 
+        imageUrl="dhjbf" 
+        redirectUrl="djksbffkb"
+        buttonText="Register Now"/>
       </header>
     </div>
   );
