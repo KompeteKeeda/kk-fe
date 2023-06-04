@@ -1,7 +1,7 @@
 import React from "react";
 import Banner from "../components/banner";
 import { idlFactory as mainIDL } from "../dids/main.did";
-import { Canister } from "../utils/constant";
+import { Canister } from "../utils/secrets";
 import { Actor, HttpAgent, Identity } from "@dfinity/agent";
 import { getAuthClient } from "../utils/auth";
 import { nfidLogin } from "../utils/auth";
