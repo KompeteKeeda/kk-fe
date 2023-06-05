@@ -5,7 +5,8 @@ import { Canister } from "../utils/secrets";
 import { Actor, HttpAgent, Identity } from "@dfinity/agent";
 import { getAuthClient } from "../utils/auth";
 import { nfidLogin } from "../utils/auth";
-import Card from "../components/card";
+import NewsCard from "../components/newscard";
+import EventsCard from "../components/eventscard";
 
 
 
@@ -39,13 +40,20 @@ const Home = () => {
         var news = await actor.readNews("test_news");
         console.log(news);
     }
-
+    var date = new Date("2016-01-04");
     return (
         <div>
-            <Card
+            <NewsCard
             title="hitesh"
             description="Here is a card for you guys, yuse ti phatephully"
             cover="/pubg.jpeg"
+            />
+            <EventsCard 
+            title="Pubg Event"
+            description="Here is a Event Card for you guys, use it faithfully!"
+            cover="/pubg.jpeg"
+            venue="Noida"
+            date={date}
             />
             <Banner
                 title="Join the Desi PUBG revolution"

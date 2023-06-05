@@ -8,7 +8,7 @@ interface CardProps {
   onClick?: () => void;
 }
 
-const Card = ({
+const NewsCard = ({
   title,
   description,
   cover,
@@ -31,4 +31,4 @@ const Card = ({
   );
 };
 
-export default Card;
+export default NewsCard;
