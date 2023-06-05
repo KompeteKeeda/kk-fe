@@ -5,6 +5,7 @@ import { Canister } from "../utils/secrets";
 import { Actor, HttpAgent, Identity } from "@dfinity/agent";
 import { getAuthClient } from "../utils/auth";
 import { nfidLogin } from "../utils/auth";
+import Card from "../components/card";
 
 
 
@@ -41,8 +42,11 @@ const Home = () => {
 
     return (
         <div>
-            <button style={{width: 100, height: 20}} onClick={login}>Login</button>
-            <button style={{width: 100, height: 20}} onClick={getNews}>callEndpoint</button>
+            <Card
+            title="hitesh"
+            description="Here is a card for you guys, yuse ti phatephully"
+            cover="/pubg.jpeg"
+            />
             <Banner
                 title="Join the Desi PUBG revolution"
                 description="Conquer the battleground with 'Desi Power'!"
