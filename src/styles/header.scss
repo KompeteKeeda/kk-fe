@@ -1,0 +1,34 @@
+.header {
+    height: 70px;
+    background-color: black;
+    margin: auto;
+    flex: left;
+}
+
+.img {
+    flex: left;
+}
+
+.buttons {
+    width: 200px;
+    margin: 0 auto;
+    height: 80px;
+  }
+  
+  .action_btn_reg {
+    display: inline-block;
+    width: 200px;
+    height: 40px;
+    margin: 0 auto;
+    color: black;
+    background-color: white;
+  }
+
+  .action_btn_login {
+    display: inline-block;
+    width: 200px;
+    height: 40px;
+    margin: 0 auto;
+    color: white;
+    background-color: black;
+  }
