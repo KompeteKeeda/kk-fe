@@ -9,7 +9,6 @@ import NewsCard from "../components/newscard";
 import EventsCard from "../components/eventscard";
 
 
-
 const Home = () => {
 
     //TODO:Frontend

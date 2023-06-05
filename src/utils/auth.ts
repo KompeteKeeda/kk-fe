@@ -2,7 +2,7 @@ import { HttpAgent, Identity } from "@dfinity/agent";
 import { AuthClient } from "@dfinity/auth-client";
 
 const APPLICATION_NAME = "KompeteKeeda";
-const APPLICATION_LOGO_URL = "https://postimg.cc/9wWVYz7V";
+const APPLICATION_LOGO_URL = "https://i.postimg.cc/RhwndcZn/Group-5.jpg";
 const AUTH_PATH =
   "/authenticate/?applicationName=" + APPLICATION_NAME+"&applicationLogo="+APPLICATION_LOGO_URL+"#authorize";
 const NFID_AUTH_URL = "https://nfid.one" + AUTH_PATH;
