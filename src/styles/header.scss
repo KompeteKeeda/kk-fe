@@ -1,12 +1,32 @@
 .header {
     height: 70px;
-    background-color: black;
+ 
     margin: auto;
-    flex: left;
-}
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
 
-.img {
-    flex: left;
+    img {
+      width: 250px;
+
+    }
+
+    .action {
+
+
+      button {
+
+        &.secondary-btn {
+
+        }
+
+        &.primary-btn {
+
+        }
+
+      }
+    }
 }
 
 .buttons {
