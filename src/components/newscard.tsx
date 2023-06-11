@@ -1,6 +1,7 @@
 import Center from "../ui/Center";
 import { News } from "../pages/news";
 import { Routes, Route, useNavigate, BrowserRouter } from 'react-router-dom'
+import "../styles/news-card.scss"
 
 interface CardProps {
   title: string;
@@ -29,11 +30,17 @@ const NewsCard = ({
 
   return (
     <Center>
-      <div style={{ background: "white", color: "black" }}>
-        <h1>{title}</h1>
-        <img src={cover} alt="news cover"></img>
-        <p>{description}</p>
-        <button style={{ width: 100, height: 20 }} onClick={onClick}>Read More</button>
+      <div className="news-card-container">
+        <div className="news-card" style={{ background: "white", color: "black" }}>
+          <img src={cover} alt="news cover"></img>
+          <div className="news-content">
+            <div className="news-info">
+              <p className="news-title">{title}</p>
+              <p className="news-desc">{description}</p>
+            </div>
+            <button onClick={onClick}>Read More</button>
+          </div>
+        </div>
       </div>
     </Center>
   );

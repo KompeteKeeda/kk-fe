@@ -11,15 +11,21 @@ const Home = () => {
 
   return (
     <div>
+      <Banner
+        title="Join the Desi PUBG revolution"
+        description="Conquer the battleground with 'Desi Power'!"
+        imageUrl="https://ik.imagekit.io/kompeteKeeda/1186797.jpg?updatedAt=1686496354756"
+        redirectUrl="djksbffkb"
+        buttonText="Register Now" />
       <NewsCard
-        title="hitesh"
-        description="Here is a card for you guys, yuse ti phatephully"
+        title="Epic Showdown: Desi Gaming Sensations Battle for Esports Supremacy"
+        description="The highly anticipated matchup brought together these talented players known for their exceptional skills and charismatic personalities..."
         cover="/pubg.jpeg"
         onClick={() => { navigate(`/news`) }}
       />
       <EventsCard
         title="Pubg Event"
-        description="Here is a Event Card for you guys, use it faithfully!"
+        description="The highly anticipated matchup brought together these talented players known for their exceptional skills and charismatic personalities...The highly anticipated matchup brought together these talented players known for their exceptional skills and charismatic personalities."
         cover="/pubg.jpeg"
         venue="Noida"
         date={date}

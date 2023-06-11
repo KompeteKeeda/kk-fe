@@ -12,9 +12,12 @@ interface BannerProps {
 const Banner: React.FC<BannerProps> = (props) => {
   return (
     <div className="card">
-      <h1 className="title">{props.title}</h1>
-      <h3 className="description">{props.description}</h3>
-      <PrimaryButton label="Register Now" />
+      <img src={props.imageUrl} alt="" />
+      <div className="banner-info">
+        <h1 className="banner-title">{props.title}</h1>
+        <p className="banner-desc">{props.description}</p>
+        <PrimaryButton label="Register Now" />
+      </div>
     </div>
   );
 }

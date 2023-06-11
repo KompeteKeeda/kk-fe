@@ -1,5 +1,6 @@
 import './App.css';
 import Home from './pages/Home';
+import "../src/styles/kk.scss"
 import { Header } from './components/header';
 import { Footer } from './components/footer';
 import {Routes, Route, useNavigate, BrowserRouter} from 'react-router-dom';

@@ -1,0 +1,55 @@
+@import "../styles/color.scss";
+
+.event-card-container {
+  width: 100%;
+
+  .event-card {
+    display: flex;
+    flex-direction: row;
+
+    img {
+      max-width: 275px;
+      height: 275px;
+      object-fit: cover;
+      border-radius: 20px;
+      margin-right: 20px;
+    }
+
+    .event-content {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      text-align: left;
+
+      .event-title {
+        margin: 0px;
+        font-size: 38px !important;
+        line-height: 44px;
+        font-weight: 700;
+        color: #F9F9F9;
+      }
+
+      .event-desc {
+        text-align: left;
+        margin: 0px;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 21px;
+        color: #F9F9F9;
+      }
+
+      span {
+        font-weight: 400;
+        font-size: 20px;
+
+        &.key {
+          color: $white70;
+        }
+
+        &.value {
+          color: $white;
+        }
+      }
+    }
+  }
+}

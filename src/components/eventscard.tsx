@@ -1,5 +1,6 @@
 import React from "react";
 import Center from "../ui/Center";
+import "../styles/event-card.scss"
 
 interface CardProps {
   title: string;
@@ -19,21 +20,24 @@ const EventsCard = ({
   onClick,
 }: CardProps) => {
 
-    const handleSubmit = () => {
+  const handleSubmit = () => {
 
-    };
+  };
 
   return (
     <Center>
-      <div style={{background: "yellow", color: "red", display: "flex", }}>
-        <div>
+      <div className="event-card-container">
+        <div className="event-card">
+          <div>
             <img onClick={handleSubmit} src={cover} alt="event cover" />
-        </div>
-        <div>
-            <h1>{title}</h1>
-            <p>{description}</p>
-            <h2>Date : {String(date)}</h2>
-            <h2>Venue : {venue}</h2>
+          </div>
+          <div className="event-content">
+            <h1 className="event-title">{title}</h1>
+            <p className="event-desc">{description}</p>
+            <span className="key">Date : <span className="value">{String(date)}</span></span>
+            <span className="key">Venue : <span className="value">{venue}</span></span>
+            <button>More details</button>
+          </div>
         </div>
       </div>
     </Center>
