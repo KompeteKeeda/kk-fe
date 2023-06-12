@@ -1,0 +1,27 @@
+.p {
+  font-family: "Cabin";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 60px;
+  line-height: 73px;
+  display: flex;
+  align-items: center;
+}
+
+.subscribe-letter {
+  position: absolute;
+  display: flex;
+  width: 1000px;
+  height: 397px;
+  left: 120px;
+  right: 120px;
+//   margin-top: 500px;
+//   top: 230px;
+  background-color: black;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+}
+
+.subscription-letter-title {
+    color: #FFFFFF;
+}
