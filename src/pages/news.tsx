@@ -8,7 +8,7 @@ export const News = () => {
 
 
   return (
-    <div className="App">
+    <div>
       <h1>
         Practicing Disciplines Today That Will Lead to Success Tomorrow.
       </h1>
@@ -45,6 +45,22 @@ export const News = () => {
 
         If you commit to a set of daily disciplines, eventually you’ll reach a point in life at which you’re absolutely astounded by all the good you have been able to accomplish. In that moment, it will be crystal clear that you didn’t do it in a day but that you did it every day. By doing the right things daily, year after year, one day you will receive reward and recognition for them.
       </h5>
+      {/* <div style={{ width: "800px", color: "black" }}>
+        <div className="subscribe-letter">
+          <div className="subscription-letter-title">
+            Subscribe to our news letter
+          </div>
+        </div>
+      </div> */}
+      <div className="jumbotron">
+  <h1 className="display-4">Hello, world!</h1>
+  <p className="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+  {/* <hr className="my-4"> */}
+  <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+  <p className="lead">
+    <a className="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+  </p>
+</div>
     </div>
   )
 }
