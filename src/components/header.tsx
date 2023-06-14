@@ -47,6 +47,9 @@ export const Header = () => {
         <button className="primary-btn" onClick={login}>
           <span>Login</span>
         </button>
+        <button className="primary-btn" onClick={getNews}>
+          <span>GetNews</span>
+        </button>
       </div>
     </div>
   )
