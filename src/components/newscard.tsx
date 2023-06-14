@@ -1,5 +1,8 @@
 import Center from "../ui/Center";
 
+import { News } from "../pages/news";
+import { Routes, Route, useNavigate, BrowserRouter } from 'react-router-dom'
+import "../styles/news-card.scss"
 
 interface CardProps {
   title: string;
@@ -21,7 +24,6 @@ const NewsCard = ({
 
   return (
     <Center>
-     
         <div className="news-card" style={{ background: "white", color: "black" }}>
           <img src={cover} alt="news cover"></img>
           <div className="news-content">
@@ -29,9 +31,10 @@ const NewsCard = ({
               <p className="news-title">{title}</p>
               <p className="news-desc">{description}</p>
             </div>
-            <button onClick={handleSubmit}>Read More</button>
+            <button onClick={onClick}>Read More</button>
           </div>
-        </div>
+       
+      </div>
     </Center>
   );
 };
