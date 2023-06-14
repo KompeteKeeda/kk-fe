@@ -1,5 +1,30 @@
 @import "./color.scss";
+@import "./font.scss";
 
 body {
-    background: #181411 !important;
+  background: #181411 !important;
+  font-family: Poppins, Roboto;
+}
+
+// MUI OVERRIDES
+.MuiTab-root {
+  &.MuiTab-textColorPrimary {
+    color: $white70;
+    font-family: Poppins;
+    font-size: 14px;
+    min-width: 200px;
+   
+
+    &.Mui-selected {
+      color: $white;
+      // border-bottom: red 1px solid;
+    }
+  }
+}
+
+.MuiTabs-scroller {
+.MuiTabs-indicator {
+background-color: $white;
+border-radius: 4px 4px 0px 0px;
+}
 }

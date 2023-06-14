@@ -1,6 +1,6 @@
 import React from "react";
 import Center from "../ui/Center";
-import "../styles/event-card.scss"
+
 
 interface CardProps {
   title: string;
@@ -26,7 +26,7 @@ const EventsCard = ({
 
   return (
     <Center>
-      <div className="event-card-container">
+     
         <div className="event-card">
           <div>
             <img onClick={handleSubmit} src={cover} alt="event cover" />
@@ -39,7 +39,7 @@ const EventsCard = ({
             <button>More details</button>
           </div>
         </div>
-      </div>
+    
     </Center>
   );
 };
