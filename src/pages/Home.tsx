@@ -5,12 +5,13 @@ import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
-
 import "../styles/news-card.scss"
 import "../styles/event-card.scss"
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { NewsLetter } from "../components/newsLetter";
 import { useNavigate } from "react-router-dom";
+import { CommonService } from "../services/commonService";
+import { News } from "../model/news";
 
 interface TabPanelProps {
   children?: React.ReactNode;
@@ -46,6 +47,10 @@ function a11yProps(index: number) {
 }
 
 const Home = () => {
+  
+  const authService = new CommonService();
+
+  const[allNews, setAllNews] = useState<News[]>([]);
 
   const navigate = useNavigate();
   const [value, setValue] = React.useState(0);
@@ -55,8 +60,20 @@ const Home = () => {
     setValue(newValue);
   };
 
-  return (
+  useEffect(() => {
+    // Function to make the API call
+    const fetchAllNews = async () => {
+      try {
+        const response = await authService.getAllNews();
+        setAllNews(response);
+      } catch (error) {
+        console.log('Error fetching data:', error);
+      }
+    };
+    fetchAllNews(); 
+  }, []); 
 
+  return (
     <div>
       <Banner
         title="Join the Desi PUBG revolution"
@@ -64,48 +81,22 @@ const Home = () => {
         imageUrl="https://ik.imagekit.io/kompeteKeeda/1186797.jpg?updatedAt=1686496354756"
         redirectUrl="djksbffkb"
         buttonText="Register Now" />
-
-
       <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
         <Tabs value={value} onChange={handleChange} aria-label="basic tabs example">
           <Tab label="News" {...a11yProps(0)} />
           <Tab label="Events" {...a11yProps(1)} />
-
         </Tabs>
       </Box>
       <TabPanel value={value} index={0}>
-        <div className="news-card-container">
+        <div  className="news-card-container" >
+        {allNews.map(({title, content, coverUrl, viewCount, endDate}) => (
           <NewsCard
-            title="Epic Showdown: Desi Gaming Sensations Battle for Esports Supremacy"
-            description="The highly anticipated matchup brought together these talented players known for their exceptional skills and charismatic personalities..."
-            cover="/pubg.jpeg"
-            onClick={() => { navigate(`/news`) }}
-          />
-          <NewsCard
-            title="Epic Showdown: Desi Gaming Sensations Battle for Esports Supremacy"
-            description="The highly anticipated matchup brought together these talented players known for their exceptional skills and charismatic personalities..."
-            cover="/pubg.jpeg"
-          />
-          <NewsCard
-            title="Epic Showdown: Desi Gaming Sensations Battle for Esports Supremacy"
-            description="The highly anticipated matchup brought together these talented players known for their exceptional skills and charismatic personalities..."
-            cover="/pubg.jpeg"
-          />
-          <NewsCard
-            title="Epic Showdown: Desi Gaming Sensations Battle for Esports Supremacy"
-            description="The highly anticipated matchup brought together these talented players known for their exceptional skills and charismatic personalities..."
-            cover="/pubg.jpeg"
-          />
-          <NewsCard
-            title="Epic Showdown: Desi Gaming Sensations Battle for Esports Supremacy"
-            description="The highly anticipated matchup brought together these talented players known for their exceptional skills and charismatic personalities..."
-            cover="/pubg.jpeg"
-          />
-          <NewsCard
-            title="Epic Showdown: Desi Gaming Sensations Battle for Esports Supremacy"
-            description="The highly anticipated matchup brought together these talented players known for their exceptional skills and charismatic personalities..."
-            cover="/pubg.jpeg"
-          />
+          id = ""
+          title = {title}
+          description= {content}
+          cover= {coverUrl}
+          onClick={() => { navigate(`/news/`) }} />
+        ))}
         </div>
       </TabPanel>
       <TabPanel value={value} index={1}>
@@ -154,10 +145,7 @@ const Home = () => {
           />
         </div>
       </TabPanel>
-
-
       <NewsLetter></NewsLetter>
-
     </div>
   );
 };
