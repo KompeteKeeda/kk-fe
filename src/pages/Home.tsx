@@ -8,6 +8,7 @@ import Box from '@mui/material/Box';
 
 import "../styles/news-card.scss"
 import "../styles/event-card.scss"
+import "../styles/home.scss"
 import React from "react";
 import { NewsLetter } from "../components/newsLetter";
 import { useNavigate } from "react-router-dom";
@@ -66,96 +67,106 @@ const Home = () => {
         buttonText="Register Now" />
 
 
-      <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
-        <Tabs value={value} onChange={handleChange} aria-label="basic tabs example">
-          <Tab label="News" {...a11yProps(0)} />
-          <Tab label="Events" {...a11yProps(1)} />
-
-        </Tabs>
-      </Box>
-      <TabPanel value={value} index={0}>
-        <div className="news-card-container">
-          <NewsCard
-            title="Epic Showdown: Desi Gaming Sensations Battle for Esports Supremacy"
-            description="The highly anticipated matchup brought together these talented players known for their exceptional skills and charismatic personalities..."
-            cover="/pubg.jpeg"
-            onClick={() => { navigate(`/news`) }}
-          />
-          <NewsCard
-            title="Epic Showdown: Desi Gaming Sensations Battle for Esports Supremacy"
-            description="The highly anticipated matchup brought together these talented players known for their exceptional skills and charismatic personalities..."
-            cover="/pubg.jpeg"
-          />
-          <NewsCard
-            title="Epic Showdown: Desi Gaming Sensations Battle for Esports Supremacy"
-            description="The highly anticipated matchup brought together these talented players known for their exceptional skills and charismatic personalities..."
-            cover="/pubg.jpeg"
-          />
-          <NewsCard
-            title="Epic Showdown: Desi Gaming Sensations Battle for Esports Supremacy"
-            description="The highly anticipated matchup brought together these talented players known for their exceptional skills and charismatic personalities..."
-            cover="/pubg.jpeg"
-          />
-          <NewsCard
-            title="Epic Showdown: Desi Gaming Sensations Battle for Esports Supremacy"
-            description="The highly anticipated matchup brought together these talented players known for their exceptional skills and charismatic personalities..."
-            cover="/pubg.jpeg"
-          />
-          <NewsCard
-            title="Epic Showdown: Desi Gaming Sensations Battle for Esports Supremacy"
-            description="The highly anticipated matchup brought together these talented players known for their exceptional skills and charismatic personalities..."
-            cover="/pubg.jpeg"
-          />
-        </div>
-      </TabPanel>
-      <TabPanel value={value} index={1}>
-        <div className="event-card-container">
-          <EventsCard
-            title="Pubg Event"
-            description="The highly anticipated matchup brought together these talented players known for their exceptional skills and charismatic personalities...The highly anticipated matchup brought together these talented players known for their exceptional skills and charismatic personalities."
-            cover="/pubg.jpeg"
-            venue="Noida"
-            date={date}
-          />
-          <EventsCard
-            title="Pubg Event"
-            description="The highly anticipated matchup brought together these talented players known for their exceptional skills and charismatic personalities...The highly anticipated matchup brought together these talented players known for their exceptional skills and charismatic personalities."
-            cover="/pubg.jpeg"
-            venue="Noida"
-            date={date}
-          />
-          <EventsCard
-            title="Pubg Event"
-            description="The highly anticipated matchup brought together these talented players known for their exceptional skills and charismatic personalities...The highly anticipated matchup brought together these talented players known for their exceptional skills and charismatic personalities."
-            cover="/pubg.jpeg"
-            venue="Noida"
-            date={date}
-          />
-          <EventsCard
-            title="Pubg Event"
-            description="The highly anticipated matchup brought together these talented players known for their exceptional skills and charismatic personalities...The highly anticipated matchup brought together these talented players known for their exceptional skills and charismatic personalities."
-            cover="/pubg.jpeg"
-            venue="Noida"
-            date={date}
-          />
-          <EventsCard
-            title="Pubg Event"
-            description="The highly anticipated matchup brought together these talented players known for their exceptional skills and charismatic personalities...The highly anticipated matchup brought together these talented players known for their exceptional skills and charismatic personalities."
-            cover="/pubg.jpeg"
-            venue="Noida"
-            date={date}
-          />
-          <EventsCard
-            title="Pubg Event"
-            description="The highly anticipated matchup brought together these talented players known for their exceptional skills and charismatic personalities...The highly anticipated matchup brought together these talented players known for their exceptional skills and charismatic personalities."
-            cover="/pubg.jpeg"
-            venue="Noida"
-            date={date}
-          />
-        </div>
-      </TabPanel>
+      <div className="main-container">
+        <h1>Game Masala</h1>
+        <p>This is a subheading</p>
 
 
+        <Box className="material-tabs" sx={{ borderBottom: 1, borderColor: 'divider' }}>
+          <Tabs value={value} onChange={handleChange} aria-label="basic tabs example">
+            <Tab label="News" {...a11yProps(0)} />
+            <Tab label="Events" {...a11yProps(1)} />
+
+          </Tabs>
+        </Box>
+        <TabPanel value={value} index={0}>
+          <div className="news-card-container">
+            <NewsCard
+              title="Epic Showdown: Desi Gaming Sensations Battle for Esports Supremacy"
+              description="The highly anticipated matchup brought together these talented players known for their exceptional skills and charismatic personalities..."
+              cover="https://c4.wallpaperflare.com/wallpaper/523/963/619/pubg-playerunknowns-battlegrounds-2018-games-games-wallpaper-preview.jpg"
+              onClick={() => { navigate(`/news`) }}
+            />
+            <NewsCard
+              title="Epic Showdown: Desi Gaming Sensations Battle for Esports Supremacy"
+              description="The highly anticipated matchup brought together these talented players known for their exceptional skills and charismatic personalities..."
+              cover="https://c4.wallpaperflare.com/wallpaper/793/738/376/pubg-video-games-helmet-reflection-wallpaper-preview.jpg"
+            />
+            <NewsCard
+              title="Epic Showdown: Desi Gaming Sensations Battle for Esports Supremacy"
+              description="The highly anticipated matchup brought together these talented players known for their exceptional skills and charismatic personalities..."
+              cover="https://c4.wallpaperflare.com/wallpaper/169/715/816/pubg-playerunknowns-battlegrounds-2018-games-games-wallpaper-preview.jpg"
+            />
+            <NewsCard
+              title="Epic Showdown: Desi Gaming Sensations Battle for Esports Supremacy"
+              description="The highly anticipated matchup brought together these talented players known for their exceptional skills and charismatic personalities..."
+              cover="https://c4.wallpaperflare.com/wallpaper/56/878/323/pubg-playerunknown-s-battlegrounds-4k-wallpaper-preview.jpg"
+            />
+            <NewsCard
+              title="Epic Showdown: Desi Gaming Sensations Battle for Esports Supremacy"
+              description="The highly anticipated matchup brought together these talented players known for their exceptional skills and charismatic personalities..."
+              cover="https://c4.wallpaperflare.com/wallpaper/112/262/501/gaming-series-video-games-pubg-players-unknown-battleground-bikes-hd-wallpaper-preview.jpg"
+            />
+            <NewsCard
+              title="Epic Showdown: Desi Gaming Sensations Battle for Esports Supremacy"
+              description="The highly anticipated matchup brought together these talented players known for their exceptional skills and charismatic personalities..."
+              cover="https://c4.wallpaperflare.com/wallpaper/645/405/207/pubg-4k-playerunknowns-battlegrounds-hd-wallpaper-preview.jpg"
+            />
+            <NewsCard
+              title="Epic Showdown: Desi Gaming Sensations Battle for Esports Supremacy"
+              description="The highly anticipated matchup brought together these talented players known for their exceptional skills and charismatic personalities..."
+              cover="https://c4.wallpaperflare.com/wallpaper/1017/688/953/pubg-playerunknowns-battlegrounds-2018-games-games-wallpaper-preview.jpg"
+            />
+          </div>
+        </TabPanel>
+        <TabPanel value={value} index={1}>
+          <div className="event-card-container">
+            <EventsCard
+              title="Pubg Event"
+              description="The highly anticipated matchup brought together these talented players known for their exceptional skills and charismatic personalities...The highly anticipated matchup brought together these talented players known for their exceptional skills and charismatic personalities."
+              cover="/pubg.jpeg"
+              venue="Noida"
+              date={date}
+            />
+            <EventsCard
+              title="Pubg Event"
+              description="The highly anticipated matchup brought together these talented players known for their exceptional skills and charismatic personalities...The highly anticipated matchup brought together these talented players known for their exceptional skills and charismatic personalities."
+              cover="/pubg.jpeg"
+              venue="Noida"
+              date={date}
+            />
+            <EventsCard
+              title="Pubg Event"
+              description="The highly anticipated matchup brought together these talented players known for their exceptional skills and charismatic personalities...The highly anticipated matchup brought together these talented players known for their exceptional skills and charismatic personalities."
+              cover="/pubg.jpeg"
+              venue="Noida"
+              date={date}
+            />
+            <EventsCard
+              title="Pubg Event"
+              description="The highly anticipated matchup brought together these talented players known for their exceptional skills and charismatic personalities...The highly anticipated matchup brought together these talented players known for their exceptional skills and charismatic personalities."
+              cover="/pubg.jpeg"
+              venue="Noida"
+              date={date}
+            />
+            <EventsCard
+              title="Pubg Event"
+              description="The highly anticipated matchup brought together these talented players known for their exceptional skills and charismatic personalities...The highly anticipated matchup brought together these talented players known for their exceptional skills and charismatic personalities."
+              cover="/pubg.jpeg"
+              venue="Noida"
+              date={date}
+            />
+            <EventsCard
+              title="Pubg Event"
+              description="The highly anticipated matchup brought together these talented players known for their exceptional skills and charismatic personalities...The highly anticipated matchup brought together these talented players known for their exceptional skills and charismatic personalities."
+              cover="/pubg.jpeg"
+              venue="Noida"
+              date={date}
+            />
+          </div>
+        </TabPanel>
+
+      </div>
       <NewsLetter></NewsLetter>
 
     </div>

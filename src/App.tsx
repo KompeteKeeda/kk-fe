@@ -17,6 +17,7 @@ function App() {
           <Route path='/dummy' element={<Home/>} />
         </Routes>
       </header>
+      <hr></hr>
       <Footer></Footer>
     </div>
   );

@@ -1,16 +1,33 @@
 import coverImage from "../assets/pubg.jpeg"
 import { NewsLetter } from "../components/newsLetter"
 import "../styles/news.scss"
+import "../styles/news-detail.scss"
+import Banner from "../components/banner"
+import ThumbUpAltIcon from '@mui/icons-material/ThumbUpAlt';
+import ThumbDownAltIcon from '@mui/icons-material/ThumbDownAlt';
 
 export const News = () => {
 
   return (
-    <div>
+    <div className="news-detail-container">
+      <Banner
+        title="Join the Desi PUBG revolution"
+        description="Conquer the battleground with 'Desi Power'!"
+        imageUrl="https://ik.imagekit.io/kompeteKeeda/1186797.jpg?updatedAt=1686496354756"
+        redirectUrl="djksbffkb"
+        buttonText="Register Now" />
       <h1>
         Practicing Disciplines Today That Will Lead to Success Tomorrow.
       </h1>
-      <img style={{ background: "white", color: "black" }} src={coverImage} alt="news cover"></img>
-      <h5 >
+
+      <div className="user-container">
+        <img src={coverImage} alt="" />
+        <span>Ashita Seth</span>
+        <span>|</span>
+        <span>16th July, 2023</span>
+      </div>
+      <img src={coverImage} alt="news cover"></img>
+      <p >
         veryone wants to be thin, but no one wants to diet. Everybody wants money, but not many people want to work long hours or to follow a budget. Lots of people would like a nice yard or garden, but few want to pull weeds.
 
         The common denominator of success is discipline—forming the habit of doing things that the vast majority of people neglect to do. Individuals don’t accidentally stumble upon greatness. Even those who suddenly gain fame have usually worked hard all of their lives to become an “overnight success.” What we do on some great occasion depends on who we already are; and who we are is the result of previous years of discipline.
@@ -41,7 +58,13 @@ export const News = () => {
         Summary
 
         If you commit to a set of daily disciplines, eventually you’ll reach a point in life at which you’re absolutely astounded by all the good you have been able to accomplish. In that moment, it will be crystal clear that you didn’t do it in a day but that you did it every day. By doing the right things daily, year after year, one day you will receive reward and recognition for them.
-      </h5>
+      </p>
+      <div className="interaction">
+        <p>Did you like it?</p>
+        <ThumbUpAltIcon></ThumbUpAltIcon>
+        <ThumbDownAltIcon></ThumbDownAltIcon>
+      </div>
+
       <NewsLetter></NewsLetter>
     </div>
   )

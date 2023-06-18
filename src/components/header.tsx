@@ -41,12 +41,14 @@ export const Header = () => {
     <div className="header">
       <img src={logo}></img>
       <div className="action">
-        <button className="secondary-btn">
+        {/* <button className="secondary-btn">
           <span>Register</span>
-        </button>
-        <button className="primary-btn" onClick={login}>
-          <span>Login</span>
-        </button>
+        </button> */}
+        <a className="offset secondary-btn on-dark" href="#">Register Now</a><br />
+
+        
+        <a className="offset primary-btn on-dark" href="#">Login</a><br />
+
       </div>
     </div>
   )

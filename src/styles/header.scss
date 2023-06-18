@@ -5,17 +5,14 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  margin-bottom: 30px;
 
   img {
     width: 250px;
   }
 
   .action {
-    button {
-      &.secondary-btn {}
-
-      &.primary-btn {}
-    }
+    display: flex;
   }
 }
 

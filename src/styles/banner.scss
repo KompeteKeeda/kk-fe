@@ -39,3 +39,26 @@
     }
   }
 }
+
+.small-card {
+  .banner-info {
+    top: 65px;
+    width: 90%;
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: space-between;
+  }
+
+  img {
+    height: 250px !important;
+  }
+
+  h1 {
+    font-size: 45px;
+    line-height: 48px;
+  }
+
+  p {
+    font-size: 18px;
+  }
+}

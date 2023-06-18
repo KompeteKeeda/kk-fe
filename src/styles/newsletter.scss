@@ -1,0 +1,42 @@
+@import "./color.scss";
+
+.newsletter-container {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  padding: 70px 20px 70px 70px;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  margin-top: 30px;
+  margin-bottom: 30px;
+
+  .secondary-btn {
+    background: $light-black !important;
+
+    &:hover {
+      &.on-dark {
+        box-shadow: $light-black 4px 4px 0px, $white 5px 5px 0px !important;
+
+      }
+    }
+  }
+
+  h1 {
+    font-size: 40px;
+    line-height: 42px;
+    color: #FFFFFF;
+  }
+
+  p {
+    font-size: 16px;
+    line-height: 20px;
+    color: #FFFFFF;
+    margin-bottom: 20px;
+  }
+
+  .news-letter-input {
+    display: flex;
+    align-items: flex-end;
+    width: 100%;
+  }
+}

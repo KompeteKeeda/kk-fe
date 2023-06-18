@@ -31,7 +31,9 @@ const NewsCard = ({
               <p className="news-title">{title}</p>
               <p className="news-desc">{description}</p>
             </div>
-            <button onClick={onClick}>Read More</button>
+           
+            <a onClick={onClick} className="offset secondary-btn on-dark" href="#">Read More</a><br />
+
           </div>
        
       </div>
