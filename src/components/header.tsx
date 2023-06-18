@@ -1,12 +1,9 @@
 import logo from "../assets/Group 3logo.png"
 import "../styles/header.scss"
 import "../styles/kk.scss"
-import { Actor, HttpAgent, Identity } from "@dfinity/agent";
+import { Identity } from "@dfinity/agent";
 import { getAuthClient } from "../utils/auth";
 import { nfidLogin } from "../utils/auth";
-import { idlFactory as mainIDL } from "../dids/main.did";
-import { Canister } from "../utils/secrets";
-
 
 export const Header = () => {
 
@@ -20,23 +17,6 @@ export const Header = () => {
       alert("Already LoggedIn!");
     }
   };
-
-  const getNews = async () => {
-    if (identity === undefined) {
-      alert("Login NFID!");
-    }
-    const agent = new HttpAgent({
-      identity: identity,
-      host: "https://ic0.app/",
-    });
-    const actor = Actor.createActor(mainIDL, {
-      agent,
-      canisterId: Canister.main_canister_id,
-    });
-
-    var news = await actor.readNews("test_news");
-    console.log(news);
-  }
   return (
     <div className="header">
       <img src={logo}></img>

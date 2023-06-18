@@ -24,7 +24,6 @@ export const nfidLogin = async (authClient: AuthClient) => {
       },
     });
   });
-
   return authClient.getIdentity();
 };
 

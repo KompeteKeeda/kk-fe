@@ -5,13 +5,13 @@ import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
-
 import "../styles/news-card.scss"
 import "../styles/event-card.scss"
-import "../styles/home.scss"
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { NewsLetter } from "../components/newsLetter";
 import { useNavigate } from "react-router-dom";
+import { CommonService } from "../services/commonService";
+import { News } from "../model/news";
 
 interface TabPanelProps {
   children?: React.ReactNode;
@@ -48,6 +48,10 @@ function a11yProps(index: number) {
 
 const Home = () => {
 
+  const commonService = new CommonService();
+
+  const [allNews, setAllNews] = useState<News[]>([]);
+
   const navigate = useNavigate();
   const [value, setValue] = React.useState(0);
   var date = new Date("2016-01-04");
@@ -56,8 +60,20 @@ const Home = () => {
     setValue(newValue);
   };
 
-  return (
+  useEffect(() => {
+    // Function to make the API call
+    const fetchAllNews = async () => {
+      try {
+        const response = await commonService.getAllNews();
+        setAllNews(response);
+      } catch (error) {
+        console.log('Error fetching data:', error);
+      }
+    };
+    fetchAllNews();
+  }, []);
 
+  return (
     <div>
       <Banner
         title="Join the Desi PUBG revolution"
@@ -65,110 +81,71 @@ const Home = () => {
         imageUrl="https://ik.imagekit.io/kompeteKeeda/1186797.jpg?updatedAt=1686496354756"
         redirectUrl="djksbffkb"
         buttonText="Register Now" />
-
-
-      <div className="main-container">
-        <h1>Game Masala</h1>
-        <p>This is a subheading</p>
-
-
-        <Box className="material-tabs" sx={{ borderBottom: 1, borderColor: 'divider' }}>
-          <Tabs value={value} onChange={handleChange} aria-label="basic tabs example">
-            <Tab label="News" {...a11yProps(0)} />
-            <Tab label="Events" {...a11yProps(1)} />
-
-          </Tabs>
-        </Box>
-        <TabPanel value={value} index={0}>
-          <div className="news-card-container">
+      <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
+        <Tabs value={value} onChange={handleChange} aria-label="basic tabs example">
+          <Tab label="News" {...a11yProps(0)} />
+          <Tab label="Events" {...a11yProps(1)} />
+        </Tabs>
+      </Box>
+      <TabPanel value={value} index={0}>
+        <div className="news-card-container" >
+          {allNews.map(({ id, title, content, coverUrl, viewCount, endDate }) => (
             <NewsCard
-              title="Epic Showdown: Desi Gaming Sensations Battle for Esports Supremacy"
-              description="The highly anticipated matchup brought together these talented players known for their exceptional skills and charismatic personalities..."
-              cover="https://c4.wallpaperflare.com/wallpaper/523/963/619/pubg-playerunknowns-battlegrounds-2018-games-games-wallpaper-preview.jpg"
-              onClick={() => { navigate(`/news`) }}
-            />
-            <NewsCard
-              title="Epic Showdown: Desi Gaming Sensations Battle for Esports Supremacy"
-              description="The highly anticipated matchup brought together these talented players known for their exceptional skills and charismatic personalities..."
-              cover="https://c4.wallpaperflare.com/wallpaper/793/738/376/pubg-video-games-helmet-reflection-wallpaper-preview.jpg"
-            />
-            <NewsCard
-              title="Epic Showdown: Desi Gaming Sensations Battle for Esports Supremacy"
-              description="The highly anticipated matchup brought together these talented players known for their exceptional skills and charismatic personalities..."
-              cover="https://c4.wallpaperflare.com/wallpaper/169/715/816/pubg-playerunknowns-battlegrounds-2018-games-games-wallpaper-preview.jpg"
-            />
-            <NewsCard
-              title="Epic Showdown: Desi Gaming Sensations Battle for Esports Supremacy"
-              description="The highly anticipated matchup brought together these talented players known for their exceptional skills and charismatic personalities..."
-              cover="https://c4.wallpaperflare.com/wallpaper/56/878/323/pubg-playerunknown-s-battlegrounds-4k-wallpaper-preview.jpg"
-            />
-            <NewsCard
-              title="Epic Showdown: Desi Gaming Sensations Battle for Esports Supremacy"
-              description="The highly anticipated matchup brought together these talented players known for their exceptional skills and charismatic personalities..."
-              cover="https://c4.wallpaperflare.com/wallpaper/112/262/501/gaming-series-video-games-pubg-players-unknown-battleground-bikes-hd-wallpaper-preview.jpg"
-            />
-            <NewsCard
-              title="Epic Showdown: Desi Gaming Sensations Battle for Esports Supremacy"
-              description="The highly anticipated matchup brought together these talented players known for their exceptional skills and charismatic personalities..."
-              cover="https://c4.wallpaperflare.com/wallpaper/645/405/207/pubg-4k-playerunknowns-battlegrounds-hd-wallpaper-preview.jpg"
-            />
-            <NewsCard
-              title="Epic Showdown: Desi Gaming Sensations Battle for Esports Supremacy"
-              description="The highly anticipated matchup brought together these talented players known for their exceptional skills and charismatic personalities..."
-              cover="https://c4.wallpaperflare.com/wallpaper/1017/688/953/pubg-playerunknowns-battlegrounds-2018-games-games-wallpaper-preview.jpg"
-            />
-          </div>
-        </TabPanel>
-        <TabPanel value={value} index={1}>
-          <div className="event-card-container">
-            <EventsCard
-              title="Pubg Event"
-              description="The highly anticipated matchup brought together these talented players known for their exceptional skills and charismatic personalities...The highly anticipated matchup brought together these talented players known for their exceptional skills and charismatic personalities."
-              cover="/pubg.jpeg"
-              venue="Noida"
-              date={date}
-            />
-            <EventsCard
-              title="Pubg Event"
-              description="The highly anticipated matchup brought together these talented players known for their exceptional skills and charismatic personalities...The highly anticipated matchup brought together these talented players known for their exceptional skills and charismatic personalities."
-              cover="/pubg.jpeg"
-              venue="Noida"
-              date={date}
-            />
-            <EventsCard
-              title="Pubg Event"
-              description="The highly anticipated matchup brought together these talented players known for their exceptional skills and charismatic personalities...The highly anticipated matchup brought together these talented players known for their exceptional skills and charismatic personalities."
-              cover="/pubg.jpeg"
-              venue="Noida"
-              date={date}
-            />
-            <EventsCard
-              title="Pubg Event"
-              description="The highly anticipated matchup brought together these talented players known for their exceptional skills and charismatic personalities...The highly anticipated matchup brought together these talented players known for their exceptional skills and charismatic personalities."
-              cover="/pubg.jpeg"
-              venue="Noida"
-              date={date}
-            />
-            <EventsCard
-              title="Pubg Event"
-              description="The highly anticipated matchup brought together these talented players known for their exceptional skills and charismatic personalities...The highly anticipated matchup brought together these talented players known for their exceptional skills and charismatic personalities."
-              cover="/pubg.jpeg"
-              venue="Noida"
-              date={date}
-            />
-            <EventsCard
-              title="Pubg Event"
-              description="The highly anticipated matchup brought together these talented players known for their exceptional skills and charismatic personalities...The highly anticipated matchup brought together these talented players known for their exceptional skills and charismatic personalities."
-              cover="/pubg.jpeg"
-              venue="Noida"
-              date={date}
-            />
-          </div>
-        </TabPanel>
-
-      </div>
+              id={id}
+              title={title}
+              description={content}
+              cover={coverUrl}
+              onClick={() => { navigate(`/news/${id}`) }} />
+          ))}
+        </div>
+      </TabPanel>
+      <TabPanel value={value} index={1}>
+        <div className="event-card-container">
+          <EventsCard
+            title="Pubg Event"
+            description="The highly anticipated matchup brought together these talented players known for their exceptional skills and charismatic personalities...The highly anticipated matchup brought together these talented players known for their exceptional skills and charismatic personalities."
+            cover="/pubg.jpeg"
+            venue="Noida"
+            date={date}
+          />
+          <EventsCard
+            title="Pubg Event"
+            description="The highly anticipated matchup brought together these talented players known for their exceptional skills and charismatic personalities...The highly anticipated matchup brought together these talented players known for their exceptional skills and charismatic personalities."
+            cover="/pubg.jpeg"
+            venue="Noida"
+            date={date}
+          />
+          <EventsCard
+            title="Pubg Event"
+            description="The highly anticipated matchup brought together these talented players known for their exceptional skills and charismatic personalities...The highly anticipated matchup brought together these talented players known for their exceptional skills and charismatic personalities."
+            cover="/pubg.jpeg"
+            venue="Noida"
+            date={date}
+          />
+          <EventsCard
+            title="Pubg Event"
+            description="The highly anticipated matchup brought together these talented players known for their exceptional skills and charismatic personalities...The highly anticipated matchup brought together these talented players known for their exceptional skills and charismatic personalities."
+            cover="/pubg.jpeg"
+            venue="Noida"
+            date={date}
+          />
+          <EventsCard
+            title="Pubg Event"
+            description="The highly anticipated matchup brought together these talented players known for their exceptional skills and charismatic personalities...The highly anticipated matchup brought together these talented players known for their exceptional skills and charismatic personalities."
+            cover="/pubg.jpeg"
+            venue="Noida"
+            date={date}
+          />
+          <EventsCard
+            title="Pubg Event"
+            description="The highly anticipated matchup brought together these talented players known for their exceptional skills and charismatic personalities...The highly anticipated matchup brought together these talented players known for their exceptional skills and charismatic personalities."
+            cover="/pubg.jpeg"
+            venue="Noida"
+            date={date}
+          />
+        </div>
+      </TabPanel>
       <NewsLetter></NewsLetter>
-
     </div>
   );
 };

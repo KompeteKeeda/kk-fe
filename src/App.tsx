@@ -3,8 +3,8 @@ import Home from './pages/Home';
 import "../src/styles/kk.scss"
 import { Header } from './components/header';
 import { Footer } from './components/footer';
-import {Routes, Route, useNavigate, BrowserRouter} from 'react-router-dom';
-import { News } from './pages/news';
+import { Routes, Route } from 'react-router-dom';
+import { NewsPage } from './pages/news';
 
 function App() {
   return (
@@ -12,9 +12,9 @@ function App() {
       <Header></Header>
       <header className="App-header">
         <Routes>
-          <Route path='/' element={<Home/>} />
-          <Route path='/news' element={<News/>} />
-          <Route path='/dummy' element={<Home/>} />
+          <Route path='/' element={<Home />} />
+          <Route path='/news/:news_id' element={<NewsPage />} />
+          <Route path='/dummy' element={<Home />} />
         </Routes>
       </header>
       <hr></hr>
