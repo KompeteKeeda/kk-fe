@@ -1,3 +1,5 @@
+@import "./styles/color.scss";
+
 .App {
   text-align: center;
 }
@@ -49,4 +51,9 @@
 }
 .App {
 padding: 40px 120px;
+}
+
+hr {
+  border-top: 1px solid #2F2B29;
+margin: 80px 0px;
 }

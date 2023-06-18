@@ -6,14 +6,133 @@ body {
   font-family: Poppins, Roboto;
 }
 
+h1 {
+  font-weight: 700;
+}
+
+//BUTTON
+
+
+// @mixin offset-button($color: $black) {
+//     display: inline-block;
+//     background-color: $color;
+//     color: $white;
+//     font-size: 18px;
+//     line-height: 1.5;
+//     font-weight: 700;
+//     padding: 24px 50px;
+//     position: relative;
+//     text-decoration: none;
+//     transition: top 250ms, left 250ms;
+//     top: -5px;
+//     left: -5px;
+
+//     &:hover,
+//     &:focus {
+//         top: 0;
+//         left: 0;
+//         text-decoration: none;
+//     }
+
+//     &::after {
+//         position: absolute;
+//         content: "";
+//         left: 6px;
+//         top: 6px;
+//         width: 100%;
+//         height: 100%;
+
+//         background-color: $white;
+//         border: 3px solid $color;
+//         transition: transform 250ms;
+//         z-index: -1;
+//     }
+
+//     &:hover::after,
+//     &:focus::after {
+//         transform: translate(-9px, -9px);
+//     }
+// }
+
+// .black-offset-button {
+//     @include offset-button($black);
+// }
+
+// p {
+//   font-family: Arial;
+//   margin: 50px auto;
+//   max-width: 400px;
+// }
+
+.offset {
+  display: inline-block;
+  border-radius: 4px;
+  padding: 12px 40px;
+  text-decoration: none !important;
+  font-size: 14px;
+  box-shadow: var(red) 5px 5px 0px;
+  transition: all 0.5s;
+  margin-right: 10px;
+  margin-bottom: 10px;
+
+  &.primary-btn {
+    background: $white;
+    border: solid 1px $black;
+    color: $black;
+
+    &.on-dark {}
+  }
+
+  &.secondary-btn {
+    background: $black;
+    border: solid 1px $white;
+    color: $white;
+
+
+  }
+}
+
+.offset:hover,
+.offset:focus {
+  text-decoration: none;
+  color: $black;
+  transform: translate(-5px, -5px);
+  box-shadow: $black 5px 5px 0px;
+
+  &.primary-btn {
+
+    &.on-dark {
+      box-shadow: $black 4px 4px 0px, $white 5px 5px 0px;
+    }
+  }
+
+  &.secondary-btn {
+    color: $white;
+    box-shadow: $black 5px 5px 0px;
+
+    &.on-dark {
+      box-shadow: $black 4px 4px 0px, $white 5px 5px 0px;
+
+    }
+  }
+}
+
 // MUI OVERRIDES
+
+#simple-tabpanel-0 {
+  .MuiBox-root {
+    padding: 0px !important;
+  }
+}
+
 .MuiTab-root {
+
   &.MuiTab-textColorPrimary {
     color: $white70;
     font-family: Poppins;
     font-size: 14px;
     min-width: 200px;
-   
+
 
     &.Mui-selected {
       color: $white;
@@ -22,9 +141,66 @@ body {
   }
 }
 
-.MuiTabs-scroller {
-.MuiTabs-indicator {
-background-color: $white;
-border-radius: 4px 4px 0px 0px;
+.MuiTabs-fixed {
+  .MuiTabs-flexContainer {
+    justify-content: center !important;
+  }
 }
+
+.MuiTabs-scroller {
+  .MuiTabs-indicator {
+    background-color: $white;
+    border-radius: 4px 4px 0px 0px;
+  }
+}
+
+.MuiOutlinedInput-root {
+  color: $white !important;
+  border: $white 1px solid !important;
+  border-radius: 4px;
+  background-color: transparent !important;
+
+  &:hover {
+    border: $white70 1px solid !important;
+
+  }
+
+  // .MuiInputBase-input {
+  //   color: $white !important;
+  //   border: $white 1px solid !important;
+  //   border-radius: 4px;
+  //   background-color: transparent !important;
+
+  //   &:hover {
+  //     border:none;
+  //   }
+  // }
+}
+
+.news-letter-input {
+
+  .MuiBox-root {
+    width: 60%;
+
+    div {
+      width: 100%;
+    }
+
+    .MuiFormControl-root {
+      width: calc(100% - 20px);
+    }
+  }
+}
+
+.interaction {
+  .MuiSvgIcon-root {
+    font-size: 24px;
+    width: auto;
+    margin-left: 8px;
+
+    &:hover {
+      color: $white70;
+    }
+  }
+
 }
