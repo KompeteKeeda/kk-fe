@@ -1,34 +1,41 @@
 .header {
-    height: 70px;
-    background-color: black;
-    margin: auto;
-    flex: left;
-}
+  height: 70px;
+  margin: auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
 
-.img {
-    flex: left;
+  img {
+    width: 250px;
+  }
+
+  .action {
+    display: flex;
+  }
 }
 
 .buttons {
-    width: 200px;
-    margin: 0 auto;
-    height: 80px;
-  }
-  
-  .action_btn_reg {
-    display: inline-block;
-    width: 200px;
-    height: 40px;
-    margin: 0 auto;
-    color: black;
-    background-color: white;
-  }
+  width: 200px;
+  margin: 0 auto;
+  height: 80px;
+}
 
-  .action_btn_login {
-    display: inline-block;
-    width: 200px;
-    height: 40px;
-    margin: 0 auto;
-    color: white;
-    background-color: black;
-  }
+.action_btn_reg {
+  display: inline-block;
+  width: 200px;
+  height: 40px;
+  margin: 0 auto;
+  color: black;
+  background-color: white;
+}
+
+.action_btn_login {
+  display: inline-block;
+  width: 200px;
+  height: 40px;
+  margin: 0 auto;
+  color: white;
+  background-color: black;
+}

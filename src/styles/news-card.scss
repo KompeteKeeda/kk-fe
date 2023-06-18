@@ -1,0 +1,62 @@
+@import "./kk.scss";
+
+.news-card {
+  background: rgba(38, 34, 31, 0.4) !important;
+  border: 1px solid rgba(114, 125, 161, 0.2);
+  border-radius: 20px;
+  // max-width: 380px;
+  margin: 10px;
+
+  img {
+    width: 100%;
+    border-radius: 20px 20px 0px 0px;
+    height: 210px;
+    object-fit: cover;
+    object-position: top;
+  }
+
+  .news-content {
+    padding: 16px 16px 0px 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    .news-info {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      margin-bottom: 20px;
+
+      p {
+        margin: 0px;
+        margin-bottom: 5px;
+      }
+
+      .news-title {
+        font-weight: 500;
+        font-size: 20px !important;
+        line-height: 23px;
+        color: #F9F9F9;
+        padding: 0px;
+        text-align: left;
+        margin-bottom: 8px;
+      }
+
+      .news-desc {
+        font-weight: 400;
+        font-size: 15px;
+        text-align: left;
+        color: $white70;
+      }
+    }
+
+    button {
+      margin-top: 16px;
+    }
+  }
+}
+
+.news-card-container {
+  display: grid;
+  grid-template-columns: auto auto auto ;
+}
