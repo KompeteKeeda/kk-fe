@@ -47,10 +47,10 @@ function a11yProps(index: number) {
 }
 
 const Home = () => {
-  
-  const authService = new CommonService();
 
-  const[allNews, setAllNews] = useState<News[]>([]);
+  const commonService = new CommonService();
+
+  const [allNews, setAllNews] = useState<News[]>([]);
 
   const navigate = useNavigate();
   const [value, setValue] = React.useState(0);
@@ -64,14 +64,14 @@ const Home = () => {
     // Function to make the API call
     const fetchAllNews = async () => {
       try {
-        const response = await authService.getAllNews();
+        const response = await commonService.getAllNews();
         setAllNews(response);
       } catch (error) {
         console.log('Error fetching data:', error);
       }
     };
-    fetchAllNews(); 
-  }, []); 
+    fetchAllNews();
+  }, []);
 
   return (
     <div>
@@ -88,15 +88,15 @@ const Home = () => {
         </Tabs>
       </Box>
       <TabPanel value={value} index={0}>
-        <div  className="news-card-container" >
-        {allNews.map(({title, content, coverUrl, viewCount, endDate}) => (
-          <NewsCard
-          id = ""
-          title = {title}
-          description= {content}
-          cover= {coverUrl}
-          onClick={() => { navigate(`/news/`) }} />
-        ))}
+        <div className="news-card-container" >
+          {allNews.map(({ id, title, content, coverUrl, viewCount, endDate }) => (
+            <NewsCard
+              id={id}
+              title={title}
+              description={content}
+              cover={coverUrl}
+              onClick={() => { navigate(`/news/${id}`) }} />
+          ))}
         </div>
       </TabPanel>
       <TabPanel value={value} index={1}>

@@ -1,10 +1,12 @@
 export const idlFactory = ({ IDL }) => {
   const Banner = IDL.Record({
+    'id' : IDL.Text,
     'url' : IDL.Text,
     'endDate' : IDL.Text,
     'redirectUrl' : IDL.Text,
   });
   const Event = IDL.Record({
+    'id' : IDL.Text,
     'title' : IDL.Text,
     'endDate' : IDL.Opt(IDL.Int),
     'venue' : IDL.Text,
@@ -17,6 +19,7 @@ export const idlFactory = ({ IDL }) => {
   const userId = IDL.Text;
   const tagId = IDL.Text;
   const News = IDL.Record({
+    'id' : IDL.Text,
     'title' : IDL.Text,
     'content' : IDL.Text,
     'endDate' : IDL.Opt(IDL.Int),
@@ -25,7 +28,9 @@ export const idlFactory = ({ IDL }) => {
     'viewCount' : IDL.Int,
     'coverUrl' : IDL.Text,
   });
+  const Result_1 = IDL.Variant({ 'ok' : News, 'err' : IDL.Text });
   const User = IDL.Record({
+    'id' : IDL.Text,
     'userName' : IDL.Text,
     'verified' : IDL.Bool,
     'contact' : IDL.Text,
@@ -45,18 +50,16 @@ export const idlFactory = ({ IDL }) => {
     'headers' : IDL.Vec(headerField),
     'status_code' : IDL.Nat16,
   });
-  const Tag = IDL.Text;
   const bannerId = IDL.Text;
   const Result_3 = IDL.Variant({ 'ok' : Banner, 'err' : IDL.Text });
   const eventId = IDL.Text;
   const Result_2 = IDL.Variant({ 'ok' : Event, 'err' : IDL.Text });
   const newsId = IDL.Text;
-  const Result_1 = IDL.Variant({ 'ok' : News, 'err' : IDL.Text });
   const Result = IDL.Variant({ 'ok' : User, 'err' : IDL.Text });
   return IDL.Service({
     'createBanner' : IDL.Func([Banner], [Banner], []),
     'createEvent' : IDL.Func([Event], [Event], []),
-    'createNews' : IDL.Func([News], [News], []),
+    'createNews' : IDL.Func([News], [Result_1], []),
     'createUser' : IDL.Func([User], [User], []),
     'http_request' : IDL.Func([HttpRequest], [HttpResponse], ['query']),
     'readAllBanners' : IDL.Func(
@@ -65,7 +68,12 @@ export const idlFactory = ({ IDL }) => {
         ['query'],
       ),
     'readAllNews' : IDL.Func([IDL.Nat, IDL.Nat], [IDL.Vec(News)], ['query']),
-    'readAllTags' : IDL.Func([], [IDL.Vec(Tag)], ['query']),
+    'readAllTagNews' : IDL.Func(
+        [tagId, IDL.Nat, IDL.Nat],
+        [IDL.Vec(News)],
+        ['query'],
+      ),
+    'readAllTags' : IDL.Func([], [IDL.Vec(tagId)], ['query']),
     'readBanner' : IDL.Func([bannerId], [Result_3], ['query']),
     'readEvent' : IDL.Func([eventId], [Result_2], ['query']),
     'readNews' : IDL.Func([newsId], [Result_1], ['query']),

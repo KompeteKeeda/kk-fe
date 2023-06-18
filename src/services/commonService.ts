@@ -4,7 +4,6 @@ import { Canister } from "../utils/secrets";
 import { News } from "../model/news";
 
 export class CommonService {
-
   identity: Identity | Promise<Identity> | undefined = undefined;
   constructor() {}
 
@@ -19,13 +18,13 @@ export class CommonService {
     });
     return actor;
   }
-  
+
   // method to get all news
-  getAllNews = async() => {
-    let newsList : News[] = [];
+  getAllNews = async () => {
+    let newsList: News[] = [];
     newsList = await this.getAgent().readAllNews(0, 10);
     return newsList;
-  }
+  };
 
   // method to get news on the basis of id
   getNews = async (id: String) => {
@@ -33,4 +32,3 @@ export class CommonService {
     return news;
   };
 }
-
