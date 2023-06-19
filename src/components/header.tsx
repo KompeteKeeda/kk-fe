@@ -12,7 +12,6 @@ export const Header = () => {
     if (identity === undefined) {
       var authClient = await getAuthClient();
       identity = await nfidLogin(authClient);
-      console.log((identity.getPrincipal()).toString())
     } else {
       alert("Already LoggedIn!");
     }
@@ -21,14 +20,8 @@ export const Header = () => {
     <div className="header">
       <img src={logo}></img>
       <div className="action">
-        {/* <button className="secondary-btn">
-          <span>Register</span>
-        </button> */}
-        <a className="offset secondary-btn on-dark" href="#">Register Now</a><br />
-
-        
-        <a className="offset primary-btn on-dark" href="#">Login</a><br />
-
+        <a className="offset secondary-btn on-dark">Register Now</a><br />
+        <a className="offset primary-btn on-dark" onClick={login}>Login</a><br />
       </div>
     </div>
   )

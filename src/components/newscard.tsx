@@ -19,8 +19,6 @@ const NewsCard = ({
   onClick,
 }: CardProps) => {
 
-  const [news, setNews] = useState<News>();
-
   return (
     <Center>
       <div className="news-card" style={{ background: "white", color: "black" }}>
