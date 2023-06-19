@@ -60,6 +60,7 @@ export const idlFactory = ({ IDL }) => {
     'createBanner' : IDL.Func([Banner], [Banner], []),
     'createEvent' : IDL.Func([Event], [Event], []),
     'createNews' : IDL.Func([News], [Result_1], []),
+    'createSubEmail' : IDL.Func([IDL.Text], [], []),
     'createUser' : IDL.Func([User], [User], []),
     'http_request' : IDL.Func([HttpRequest], [HttpResponse], ['query']),
     'readAllBanners' : IDL.Func(
