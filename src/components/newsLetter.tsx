@@ -1,17 +1,39 @@
 import { Box, FormControl, FormHelperText, InputAdornment, OutlinedInput, TextField } from "@mui/material"
 import "../styles/news.scss"
 import "../styles/newsletter.scss"
+import React from "react";
+import { CommonService } from "../services/commonService";
 
 export const NewsLetter = () => {
+  const [email, setEmail] = React.useState("");
+  const commonService = new CommonService();
+
+  function isValidEmail(email : any) {
+    return /\S+@\S+\.\S+/.test(email);
+  }
+
+  const handleInput = (event : any) => {
+    setEmail(event.target.value);
+  };
+  const handleSubmit = (event : any) => {
+    event.preventDefault();
+    if(email !== "" && isValidEmail(email)) {
+      commonService.createSubscriptionEmail(email);
+      console.log("Thanks Bro!");
+    } else {
+      alert("MF input correct email!");
+    }
+  };
+
+
   return (
     <div className="newsletter-container">
       <h1 className="display-4">Subscribe to our news letter</h1>
-      <p className="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
       <div className="news-letter-input">
         <Box sx={{ display: 'flex', flexWrap: 'wrap' }}>
           <div>
             <FormControl sx={{ m: 1, width: '25ch' }} variant="outlined">
-              <OutlinedInput
+              <OutlinedInput onInput={handleInput}
                 id="outlined-adornment-weight"
                 placeholder="Enter your email id"
                 inputProps={{
@@ -21,7 +43,7 @@ export const NewsLetter = () => {
             </FormControl>
           </div>
         </Box>
-        <a className="offset secondary-btn on-dark" href="#" role="button">Subscribe</a>
+        <a className="offset secondary-btn on-dark" href="#" role="button" onClick={handleSubmit}>Subscribe</a>
       </div>
     </div>
   )

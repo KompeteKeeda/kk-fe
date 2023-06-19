@@ -31,4 +31,8 @@ export class CommonService {
     var news = await this.getAgent().readNews(id);
     return news;
   };
+
+  createSubscriptionEmail = async (email : String) => {
+    await this.getAgent().createSubEmail(email);
+  };
 }
