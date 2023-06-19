@@ -1,15 +1,12 @@
 import { useEffect, useState } from "react";
-import coverImage from "../assets/pubg.jpeg"
 import { NewsLetter } from "../components/newsLetter"
-import { CommonService } from "../services/commonService";
-// import { News } from "../model/news"
 import "../styles/news.scss"
 import { News } from "../model/news";
-import { title } from "process";
+import { NewsService } from "../services/newsService";
 
 export const NewsPage = () => {
 
-  const commonService = new CommonService();
+  const newsService = new NewsService();
 
   const [news, setNews] = useState<News>();
 
@@ -19,7 +16,7 @@ export const NewsPage = () => {
     // Function to make the API call
     const fetchNews = async () => {
       try {
-        const response = await commonService.getNews(news_id);
+        const response = await newsService.getNews(news_id);
         if (response.Err == undefined) {
           setNews(response.ok);
         }

@@ -3,23 +3,25 @@ import Center from "../ui/Center";
 import "../styles/event-card.scss"
 
 
-interface CardProps {
-  title: string;
-  description: string,
-  cover: string,
-  venue: string,
+interface EventProps {
+  id: String;
+  title: String;
+  description: String,
+  cover: String,
+  venue: String,
   date: Date
   onClick?: () => void;
 }
 
 const EventsCard = ({
+  id,
   title,
   description,
   cover,
   venue,
   date,
   onClick,
-}: CardProps) => {
+}: EventProps) => {
 
   const handleSubmit = () => {
 
@@ -29,7 +31,7 @@ const EventsCard = ({
     <Center>
         <div className="event-card">
           <div>
-            <img onClick={handleSubmit} src={cover} alt="event cover" />
+            <img onClick={handleSubmit} src={cover.toString()} alt="event cover" />
           </div>
           <div className="event-content">
             <h1 className="event-title">{title}</h1>
