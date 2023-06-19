@@ -6,6 +6,7 @@ import { CommonService } from "../services/commonService";
 import "../styles/news.scss"
 import { News } from "../model/news";
 import { title } from "process";
+import Banner from "../components/banner";
 
 export const NewsPage = () => {
 
@@ -32,6 +33,13 @@ export const NewsPage = () => {
 
   return (
     <div>
+      <Banner
+      title="Join the Desi PUBG revolution"
+      description="Conquer the battleground with 'Desi Power'!"
+      imageUrl="https://ik.imagekit.io/kompeteKeeda/1186797.jpg?updatedAt=1686496354756"
+      redirectUrl="djksbffkb"
+      buttonText="Register Now"
+      bannerSize="sm" />
       {(news !== undefined) ? (
         <>
           <h1>

@@ -60,3 +60,14 @@
   display: grid;
   grid-template-columns: auto auto auto ;
 }
+
+.secondary-btn {
+  background: $medium-black !important;
+
+  &:hover {
+    &.on-dark {
+      box-shadow: $medium-black 4px 4px 0px, $white 5px 5px 0px !important;
+
+    }
+  }
+}

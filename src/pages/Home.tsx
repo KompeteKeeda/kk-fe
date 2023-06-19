@@ -80,8 +80,9 @@ const Home = () => {
         description="Conquer the battleground with 'Desi Power'!"
         imageUrl="https://ik.imagekit.io/kompeteKeeda/1186797.jpg?updatedAt=1686496354756"
         redirectUrl="djksbffkb"
-        buttonText="Register Now" />
-      <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
+        buttonText="Register Now"
+        bannerSize="lg" />
+      <Box className="m-t-md m-b-md" sx={{ borderBottom: 1, borderColor: 'divider' }}>
         <Tabs value={value} onChange={handleChange} aria-label="basic tabs example">
           <Tab label="News" {...a11yProps(0)} />
           <Tab label="Events" {...a11yProps(1)} />
