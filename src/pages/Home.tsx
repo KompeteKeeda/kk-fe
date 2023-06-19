@@ -10,8 +10,10 @@ import "../styles/event-card.scss"
 import React, { useEffect, useState } from "react";
 import { NewsLetter } from "../components/newsLetter";
 import { useNavigate } from "react-router-dom";
-import { CommonService } from "../services/commonService";
 import { News } from "../model/news";
+import { NewsService } from "../services/newsService";
+import { EventsService } from "../services/eventsService";
+import { Events } from "../model/events";
 
 interface TabPanelProps {
   children?: React.ReactNode;
@@ -48,9 +50,11 @@ function a11yProps(index: number) {
 
 const Home = () => {
 
-  const commonService = new CommonService();
+  const newsService = new NewsService();
+  const eventsService = new EventsService();
 
   const [allNews, setAllNews] = useState<News[]>([]);
+  const [allEvents, setAllEvents] = useState<Events[]>([]);
 
   const navigate = useNavigate();
   const [value, setValue] = React.useState(0);
@@ -64,13 +68,22 @@ const Home = () => {
     // Function to make the API call
     const fetchAllNews = async () => {
       try {
-        const response = await commonService.getAllNews();
+        const response = await newsService.getAllNews();
         setAllNews(response);
       } catch (error) {
         console.log('Error fetching data:', error);
       }
     };
+    const fetchAllEvents = async () => {
+      try {
+        const response = await eventsService.getAllEvents();
+        setAllEvents(response);
+      } catch (error) {
+        console.log('Error fetching data:', error);
+      }
+    };
     fetchAllNews();
+    fetchAllEvents();
   }, []);
 
   return (
@@ -101,7 +114,17 @@ const Home = () => {
       </TabPanel>
       <TabPanel value={value} index={1}>
         <div className="event-card-container">
-          <EventsCard
+        {allEvents.map(({ id, title, description, host, venue, prizePool, timestamp, coverUrl, endDate }) => (
+            <EventsCard
+              id={id}
+              title={title}
+              description={description}
+              venue={venue}
+              date={timestamp}
+              cover={coverUrl}
+              onClick={() => { navigate(`/news/${id}`) }} />
+          ))}
+          {/* <EventsCard
             title="Pubg Event"
             description="The highly anticipated matchup brought together these talented players known for their exceptional skills and charismatic personalities...The highly anticipated matchup brought together these talented players known for their exceptional skills and charismatic personalities."
             cover="/pubg.jpeg"
@@ -142,7 +165,7 @@ const Home = () => {
             cover="/pubg.jpeg"
             venue="Noida"
             date={date}
-          />
+          /> */}
         </div>
       </TabPanel>
       <NewsLetter></NewsLetter>

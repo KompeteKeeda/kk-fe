@@ -17,7 +17,7 @@ const NewsCard = ({
   description,
   cover,
   onClick,
-}: CardProps) => {
+}: CardProps) => { 
 
   return (
     <Center>
