@@ -168,7 +168,7 @@ const Home = () => {
           /> */}
         </div>
       </TabPanel>
-      <NewsLetter></NewsLetter>
+      <NewsLetter/>
     </div>
   );
 };

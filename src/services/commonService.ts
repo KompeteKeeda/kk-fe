@@ -17,4 +17,8 @@ export class CommonService {
     });
     return actor;
   }
+
+  createSubscriptionEmail = async (email : String) => {
+    await this.getAgent().createSubEmail(email);
+  };
 }
