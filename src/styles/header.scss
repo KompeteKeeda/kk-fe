@@ -39,3 +39,18 @@
   color: white;
   background-color: black;
 }
+
+@media (max-width: 768px) {
+  .header-img {
+    width: 160px !important;
+  }
+}
+
+@media (max-width: 576px) {
+.header {
+  img {
+    width: 140px;
+  }
+  
+}
+}

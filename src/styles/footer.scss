@@ -1,34 +1,31 @@
 @import "./color.scss";
 
 .footer-container {
-display: flex;
-justify-content: space-between;
-
-h4 {
-  color: $white70;
-}
-
-.about-us {
-  text-align: left;
   display: flex;
-  flex-direction: column;
-    max-width: 550px;
+  justify-content: space-between;
 
+  h4 {
+    color: $white70;
+  }
+
+  .about-us {
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    max-width: 550px;
 
     p {
       color: $white;
     }
-}
+  }
 
-.socials {
-  margin-right: 80px;
+  .socials {
+    margin-right: 80px;
 
-  .social-icons {
-    display: flex;
-    align-items:center;
+    .social-icons {
+      display: flex;
+      align-items: center;
 
-
-     
       a {
         color: $white;
         background-color: $light-black;
@@ -40,8 +37,48 @@ h4 {
           color: $white70;
         }
       }
-    
-
+    }
   }
+}
+
+.copyright {
+  text-align: left;
+  margin-top: 40px;
+  color: $white70;
+}
+
+@media (max-width: 992px) {
+  .footer-container {
+    .about-us {
+      max-width: 440px;
+    }
+  }
+}
+
+@media(max-width: 756px) {
+  .footer-container {
+    .about-us {
+      max-width: 260px;
+
+      p {
+        font-size: 12px;
+      }
+    }
+  }
+
+  .copyright {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 576px) {
+
+  .footer-container {
+    .about-us {
+      width: calc(100% - 180px);
+    }
+  }
+.socials {
+  margin-right: 0px !important;
 }
 }

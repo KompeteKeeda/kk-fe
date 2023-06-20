@@ -29,7 +29,7 @@ const NewsCard = ({
             <p className="news-title">{title}</p>
             <p className="news-desc">{summary.slice(0, 170)}...</p>
           </div>
-          <button onClick={onClick}>Read More</button>
+          <a onClick={onClick} className="offset secondary-btn on-dark" href="#">Read More</a><br />
         </div>
       </div>
     </Center>
