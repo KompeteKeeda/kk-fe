@@ -69,17 +69,12 @@
   }
 }
 
-@media(max-width:992px) {
+@media (max-width: 992px) {
   .event-card-container {
     .event-card {
-
-     
       .event-content {
-        
         .event-title {
-
           font-size: 28px !important;
-
         }
 
         .event-desc {
@@ -94,10 +89,10 @@
   }
 }
 
-@media(max-width: 768px) {
+@media (max-width: 768px) {
   .event-card-container {
     display: grid;
-    grid-template-columns: auto auto ;
+    grid-template-columns: auto auto;
 
     .event-card {
       flex-direction: column;
@@ -126,8 +121,7 @@
     }
   }
 }
-
-@media(max-width: 576px) {
+@media (max-width: 576px) {
   .event-card-container {
     display: grid;
     grid-template-columns: auto;

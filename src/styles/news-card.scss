@@ -36,7 +36,7 @@
         font-weight: 500;
         font-size: 20px !important;
         line-height: 23px;
-        color: #F9F9F9;
+        color: #f9f9f9;
         padding: 0px;
         text-align: left;
         margin-bottom: 8px;
@@ -58,7 +58,7 @@
 
 .news-card-container {
   display: grid;
-  grid-template-columns: auto auto auto ;
+  grid-template-columns: auto auto auto;
 }
 
 .secondary-btn {
@@ -67,7 +67,6 @@
   &:hover {
     &.on-dark {
       box-shadow: $medium-black 4px 4px 0px, $white 5px 5px 0px !important;
-
     }
   }
 }

@@ -16,7 +16,6 @@
     &:hover {
       &.on-dark {
         box-shadow: $light-black 4px 4px 0px, $white 5px 5px 0px !important;
-
       }
     }
   }
@@ -24,13 +23,13 @@
   h1 {
     font-size: 40px;
     line-height: 42px;
-    color: #FFFFFF;
+    color: #ffffff;
   }
 
   p {
     font-size: 16px;
     line-height: 20px;
-    color: #FFFFFF;
+    color: #ffffff;
     margin-bottom: 20px;
   }
 
@@ -41,16 +40,16 @@
   }
 }
 
-@media (max-width: 768px){
+@media (max-width: 768px) {
   .newsletter-container {
     padding: 30px 40px 30px 40px;
-    
+
     h1 {
       font-size: 28px;
       margin-top: 0px;
     }
 
-    p{
+    p {
       font-size: 14px;
       line-height: 19px;
     }

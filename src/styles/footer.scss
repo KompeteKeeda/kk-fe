@@ -55,7 +55,7 @@
   }
 }
 
-@media(max-width: 756px) {
+@media (max-width: 756px) {
   .footer-container {
     .about-us {
       max-width: 260px;
@@ -72,13 +72,12 @@
 }
 
 @media (max-width: 576px) {
-
   .footer-container {
     .about-us {
       width: calc(100% - 180px);
     }
   }
-.socials {
-  margin-right: 0px !important;
-}
+  .socials {
+    margin-right: 0px !important;
+  }
 }

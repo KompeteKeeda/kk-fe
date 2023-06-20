@@ -2,13 +2,28 @@ import type { Principal } from '@dfinity/principal';
 import type { ActorMethod } from '@dfinity/agent';
 
 export type BatchId = bigint;
-export type BatchOperationKind = { 'CreateAsset' : CreateAssetArguments } |
+export type BatchOperationKind = {
+    'SetAssetProperties' : SetAssetPropertiesArguments
+  } |
+  { 'CreateAsset' : CreateAssetArguments } |
   { 'UnsetAssetContent' : UnsetAssetContentArguments } |
   { 'DeleteAsset' : DeleteAssetArguments } |
   { 'SetAssetContent' : SetAssetContentArguments } |
   { 'Clear' : ClearArguments };
 export type ChunkId = bigint;
 export type ClearArguments = {};
+export interface CommitBatchArguments {
+  'batch_id' : BatchId,
+  'operations' : Array<BatchOperationKind>,
+}
+export interface CommitProposedBatchArguments {
+  'batch_id' : BatchId,
+  'evidence' : Uint8Array | number[],
+}
+export interface ComputeEvidenceArguments {
+  'batch_id' : BatchId,
+  'max_iterations' : [] | [number],
+}
 export interface CreateAssetArguments {
   'key' : Key,
   'content_type' : string,
@@ -18,6 +33,7 @@ export interface CreateAssetArguments {
   'enable_aliasing' : [] | [boolean],
 }
 export interface DeleteAssetArguments { 'key' : Key }
+export interface DeleteBatchArguments { 'batch_id' : BatchId }
 export interface GrantPermission {
   'permission' : Permission,
   'to_principal' : Principal,
@@ -28,6 +44,7 @@ export interface HttpRequest {
   'method' : string,
   'body' : Uint8Array | number[],
   'headers' : Array<HeaderField>,
+  'certificate_version' : [] | [number],
 }
 export interface HttpResponse {
   'body' : Uint8Array | number[],
@@ -53,6 +70,7 @@ export interface SetAssetContentArguments {
 export interface SetAssetPropertiesArguments {
   'key' : Key,
   'headers' : [] | [[] | [Array<HeaderField>]],
+  'is_aliased' : [] | [[] | [boolean]],
   'allow_raw_access' : [] | [[] | [boolean]],
   'max_age' : [] | [[] | [bigint]],
 }
@@ -77,16 +95,24 @@ export interface UnsetAssetContentArguments {
   'key' : Key,
   'content_encoding' : string,
 }
+export type ValidationResult = { 'Ok' : string } |
+  { 'Err' : string };
 export interface _SERVICE {
+  'api_version' : ActorMethod<[], number>,
   'authorize' : ActorMethod<[Principal], undefined>,
   'certified_tree' : ActorMethod<
     [{}],
     { 'certificate' : Uint8Array | number[], 'tree' : Uint8Array | number[] }
   >,
   'clear' : ActorMethod<[ClearArguments], undefined>,
-  'commit_batch' : ActorMethod<
-    [{ 'batch_id' : BatchId, 'operations' : Array<BatchOperationKind> }],
+  'commit_batch' : ActorMethod<[CommitBatchArguments], undefined>,
+  'commit_proposed_batch' : ActorMethod<
+    [CommitProposedBatchArguments],
     undefined
+  >,
+  'compute_evidence' : ActorMethod<
+    [ComputeEvidenceArguments],
+    [] | [Uint8Array | number[]]
   >,
   'create_asset' : ActorMethod<[CreateAssetArguments], undefined>,
   'create_batch' : ActorMethod<[{}], { 'batch_id' : BatchId }>,
@@ -96,6 +122,7 @@ export interface _SERVICE {
   >,
   'deauthorize' : ActorMethod<[Principal], undefined>,
   'delete_asset' : ActorMethod<[DeleteAssetArguments], undefined>,
+  'delete_batch' : ActorMethod<[DeleteBatchArguments], undefined>,
   'get' : ActorMethod<
     [{ 'key' : Key, 'accept_encodings' : Array<string> }],
     {
@@ -110,6 +137,7 @@ export interface _SERVICE {
     [Key],
     {
       'headers' : [] | [Array<HeaderField>],
+      'is_aliased' : [] | [boolean],
       'allow_raw_access' : [] | [boolean],
       'max_age' : [] | [bigint],
     }
@@ -150,6 +178,7 @@ export interface _SERVICE {
   >,
   'list_authorized' : ActorMethod<[], Array<Principal>>,
   'list_permitted' : ActorMethod<[ListPermitted], Array<Principal>>,
+  'propose_commit_batch' : ActorMethod<[CommitBatchArguments], undefined>,
   'revoke_permission' : ActorMethod<[RevokePermission], undefined>,
   'set_asset_content' : ActorMethod<[SetAssetContentArguments], undefined>,
   'set_asset_properties' : ActorMethod<
@@ -168,5 +197,19 @@ export interface _SERVICE {
     ],
     undefined
   >,
+  'take_ownership' : ActorMethod<[], undefined>,
   'unset_asset_content' : ActorMethod<[UnsetAssetContentArguments], undefined>,
+  'validate_commit_proposed_batch' : ActorMethod<
+    [CommitProposedBatchArguments],
+    ValidationResult
+  >,
+  'validate_grant_permission' : ActorMethod<
+    [GrantPermission],
+    ValidationResult
+  >,
+  'validate_revoke_permission' : ActorMethod<
+    [RevokePermission],
+    ValidationResult
+  >,
+  'validate_take_ownership' : ActorMethod<[], ValidationResult>,
 }
