@@ -150,6 +150,7 @@ h1 {
 }
 
 .MuiTab-root {
+  padding: 0px !important;
 
   &.MuiTab-textColorPrimary {
     color: $white70;
@@ -168,6 +169,8 @@ h1 {
 .MuiTabs-fixed {
   .MuiTabs-flexContainer {
     justify-content: center !important;
+    // border-bottom: 1px solid $white10;
+
   }
 }
 
@@ -227,4 +230,17 @@ h1 {
     }
   }
 
+}
+
+// RESPONSIVENESS
+
+@media (max-width: 768px) {
+  .offset {
+    font-size: 12px;
+    padding: 10px 14px;
+  }
+
+  .MuiInputBase-input {
+    height: 5px !important;
+  }
 }

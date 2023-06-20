@@ -57,3 +57,9 @@ hr {
   border-top: 1px solid #2F2B29;
 margin: 80px 0px;
 }
+
+@media (max-width: 992px) {
+  .App{
+    padding: 40px;
+  }
+}
