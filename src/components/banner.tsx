@@ -11,7 +11,6 @@ interface BannerProps {
 }
 
 const Banner: React.FC<BannerProps> = (props) => {
-  console.log(props);
   return (
     <div>
  {props.bannerSize == "lg" &&
