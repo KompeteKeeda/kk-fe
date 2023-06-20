@@ -18,7 +18,10 @@ const NewsCard = ({
   description,
   cover,
   onClick,
-}: CardProps) => { 
+}: CardProps) => {
+
+  const regex = /(<([^>]+)>)/gi;
+  const summary = description.replace(regex, "");
 
   return (
     <Center>
@@ -27,7 +30,7 @@ const NewsCard = ({
         <div className="news-content">
           <div className="news-info">
             <p className="news-title">{title}</p>
-            <p className="news-desc">{parse(description.slice(0, 170))}...</p>
+            <p className="news-desc">{summary.slice(0, 170)}...</p>
           </div>
           <button onClick={onClick}>Read More</button>
         </div>
