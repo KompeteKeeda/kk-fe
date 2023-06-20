@@ -58,7 +58,6 @@ const Home = () => {
 
   const navigate = useNavigate();
   const [value, setValue] = React.useState(0);
-  var date = new Date("2016-01-04");
 
   const handleChange = (event: React.SyntheticEvent, newValue: number) => {
     setValue(newValue);
@@ -84,7 +83,7 @@ const Home = () => {
     };
     fetchAllNews();
     fetchAllEvents();
-  }, []);
+  });
 
   return (
     <div>
@@ -124,48 +123,6 @@ const Home = () => {
               cover={coverUrl}
               onClick={() => { navigate(`/news/${id}`) }} />
           ))}
-          {/* <EventsCard
-            title="Pubg Event"
-            description="The highly anticipated matchup brought together these talented players known for their exceptional skills and charismatic personalities...The highly anticipated matchup brought together these talented players known for their exceptional skills and charismatic personalities."
-            cover="/pubg.jpeg"
-            venue="Noida"
-            date={date}
-          />
-          <EventsCard
-            title="Pubg Event"
-            description="The highly anticipated matchup brought together these talented players known for their exceptional skills and charismatic personalities...The highly anticipated matchup brought together these talented players known for their exceptional skills and charismatic personalities."
-            cover="/pubg.jpeg"
-            venue="Noida"
-            date={date}
-          />
-          <EventsCard
-            title="Pubg Event"
-            description="The highly anticipated matchup brought together these talented players known for their exceptional skills and charismatic personalities...The highly anticipated matchup brought together these talented players known for their exceptional skills and charismatic personalities."
-            cover="/pubg.jpeg"
-            venue="Noida"
-            date={date}
-          />
-          <EventsCard
-            title="Pubg Event"
-            description="The highly anticipated matchup brought together these talented players known for their exceptional skills and charismatic personalities...The highly anticipated matchup brought together these talented players known for their exceptional skills and charismatic personalities."
-            cover="/pubg.jpeg"
-            venue="Noida"
-            date={date}
-          />
-          <EventsCard
-            title="Pubg Event"
-            description="The highly anticipated matchup brought together these talented players known for their exceptional skills and charismatic personalities...The highly anticipated matchup brought together these talented players known for their exceptional skills and charismatic personalities."
-            cover="/pubg.jpeg"
-            venue="Noida"
-            date={date}
-          />
-          <EventsCard
-            title="Pubg Event"
-            description="The highly anticipated matchup brought together these talented players known for their exceptional skills and charismatic personalities...The highly anticipated matchup brought together these talented players known for their exceptional skills and charismatic personalities."
-            cover="/pubg.jpeg"
-            venue="Noida"
-            date={date}
-          /> */}
         </div>
       </TabPanel>
       <NewsLetter/>

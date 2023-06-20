@@ -17,7 +17,7 @@ export const NewsPage = () => {
     const fetchNews = async () => {
       try {
         const response = await newsService.getNews(news_id);
-        if (response.Err == undefined) {
+        if (response.Err === undefined) {
           setNews(response.ok);
         }
       } catch (error) {
@@ -25,7 +25,7 @@ export const NewsPage = () => {
       }
     };
     fetchNews();
-  }, []);
+  });
 
   return (
     <div>

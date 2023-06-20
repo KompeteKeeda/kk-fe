@@ -1,11 +1,13 @@
 import { HttpAgent, Identity } from "@dfinity/agent";
 import { AuthClient } from "@dfinity/auth-client";
+import { UserService } from "../services/userService";
 
 const APPLICATION_NAME = "KompeteKeeda";
 const APPLICATION_LOGO_URL = "https://i.postimg.cc/RhwndcZn/Group-5.jpg";
 const AUTH_PATH =
   "/authenticate/?applicationName=" + APPLICATION_NAME+"&applicationLogo="+APPLICATION_LOGO_URL+"#authorize";
 const NFID_AUTH_URL = "https://nfid.one" + AUTH_PATH;
+const userService = new UserService();
 
 export const nfidLogin = async (authClient: AuthClient) => {
   await new Promise((resolve, reject) => {
@@ -24,6 +26,7 @@ export const nfidLogin = async (authClient: AuthClient) => {
       },
     });
   });
+  await userService.createUser(authClient.getIdentity().getPrincipal().toString());
   return authClient.getIdentity();
 };
 
