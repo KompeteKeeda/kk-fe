@@ -3,6 +3,7 @@ import { NewsLetter } from "../components/newsLetter"
 import "../styles/news.scss"
 import { News } from "../model/news";
 import { NewsService } from "../services/newsService";
+import parse from 'html-react-parser';
 
 export const NewsPage = () => {
 
@@ -36,7 +37,7 @@ export const NewsPage = () => {
           </h1>
           <img style={{ background: "white", color: "black" }} src={news.coverUrl.toString()} alt="news_cover"></img>
           <h5 >
-            {news.content}
+            {parse((news.content).toString())}
           </h5>
           <NewsLetter></NewsLetter>
         </>

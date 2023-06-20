@@ -2,6 +2,7 @@ import Center from "../ui/Center";
 import "../styles/news-card.scss"
 import { useState } from "react";
 import { News } from "../model/news";
+import parse from 'html-react-parser'
 
 interface CardProps {
   id: String;
@@ -26,7 +27,7 @@ const NewsCard = ({
         <div className="news-content">
           <div className="news-info">
             <p className="news-title">{title}</p>
-            <p className="news-desc">{description.slice(0, 170)}...</p>
+            <p className="news-desc">{parse(description.slice(0, 170))}...</p>
           </div>
           <button onClick={onClick}>Read More</button>
         </div>
