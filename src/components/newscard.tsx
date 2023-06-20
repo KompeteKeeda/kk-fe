@@ -1,8 +1,5 @@
 import Center from "../ui/Center";
 import "../styles/news-card.scss"
-import { useState } from "react";
-import { News } from "../model/news";
-import parse from 'html-react-parser'
 
 interface CardProps {
   id: String;

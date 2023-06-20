@@ -1,4 +1,4 @@
-import { Box, FormControl, FormHelperText, InputAdornment, OutlinedInput, TextField } from "@mui/material"
+import { Box, FormControl, OutlinedInput } from "@mui/material"
 import "../styles/news.scss"
 import "../styles/newsletter.scss"
 import React from "react";
@@ -43,7 +43,7 @@ export const NewsLetter = () => {
             </FormControl>
           </div>
         </Box>
-        <a className="offset secondary-btn on-dark" href="#" role="button" onClick={handleSubmit}>Subscribe</a>
+        <a className="offset secondary-btn on-dark" href=":;javascript" role="button" onClick={handleSubmit}>Subscribe</a>
       </div>
     </div>
   )
