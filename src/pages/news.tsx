@@ -27,7 +27,7 @@ export const NewsPage = () => {
       }
     };
     fetchNews();
-  });
+  }, []);
 
   return (
     <div>

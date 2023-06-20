@@ -83,7 +83,7 @@ const Home = () => {
     };
     fetchAllNews();
     fetchAllEvents();
-  });
+  }, []);
 
   return (
     <div>
