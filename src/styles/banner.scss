@@ -50,7 +50,8 @@
   }
 
   img {
-    height: 300px !important;
+    // height: 300px !important;
+    height: 260px !important;
   }
 
   h1 {
@@ -91,7 +92,7 @@
     }
 
     .banner-info {
-      top: 45px;
+      top: 75px;
       left: 45px;
 
       h1 {
@@ -135,16 +136,29 @@
       font-size: 14px !important;
     }
   }
+
+  .card {
+    img {
+      height: 210px;
+    }
+    .banner-info {
+      top: 30px;
+      left: 30px;
+    }
+  }
 }
 
 @media (max-width: 576px) {
   .small-card {
     img {
-      height: 150px !important;
+      height: 200px !important;
     }
 
     .banner-info {
-      top: 25px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      top: 65px;
       left: 25px;
 
       .banner-title {
@@ -153,7 +167,8 @@
       }
 
       .banner-desc {
-        max-width: 180px;
+        max-width: 280px;
+        line-height: 15px;
         font-size: 12px !important;
       }
     }

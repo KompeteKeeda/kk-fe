@@ -45,17 +45,19 @@ export const NewsPage = () => {
         buttonText="Register Now"
         bannerSize="sm" />
 
-      <div className="user-container">
-        <img src={coverImage} alt="" />
-        <span>Ashita Seth</span>
-        <span>|</span>
-        <span>16th July, 2023</span>
-      </div>
+      
       {(news !== undefined) ? (
         <>
           <h1>
             {news.title}
           </h1>
+
+          <div className="user-container">
+        <img src={coverImage} alt="" />
+        <span>Ashita Seth</span>
+        <span>|</span>
+        <span>16th July, 2023</span>
+      </div>
           <img style={{ background: "white", color: "black" }} src={news.coverUrl.toString()} alt="news_cover"></img>
           <h5>
             {parse((news.content).toString())}

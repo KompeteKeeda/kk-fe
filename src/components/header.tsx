@@ -20,7 +20,7 @@ export const Header = () => {
     <div className="header">
       <img src={logo}></img>
       <div className="action">
-        <a className="offset secondary-btn on-dark">Register Now</a><br />
+        <a className="offset secondary-btn on-dark _register-now">Register Now</a><br />
         <a className="offset primary-btn on-dark" onClick={login}>Login</a><br />
       </div>
     </div>

@@ -55,3 +55,14 @@
     }
   }
 }
+
+@media (max-width: 576px) {
+  .newsletter-container{
+    .news-letter-input{
+      display: flex;
+    align-items: flex-start;
+    width: 100%;
+    flex-direction: column;
+    }
+  }
+}

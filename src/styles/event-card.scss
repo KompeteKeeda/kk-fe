@@ -15,7 +15,7 @@
     align-items: stretch;
 
     img {
-      max-width: 275px;
+      width: 275px;
       height: 100%;
       object-fit: cover;
       border-radius: 10px;
@@ -127,6 +127,7 @@
     grid-template-columns: auto;
 
     .event-card {
+      margin: 10px 0px;
       img {
         min-width: 100%;
       }

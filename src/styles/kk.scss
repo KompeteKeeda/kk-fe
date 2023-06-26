@@ -34,59 +34,6 @@ h1 {
   font-weight: 700;
 }
 
-//BUTTON
-
-// @mixin offset-button($color: $black) {
-//     display: inline-block;
-//     background-color: $color;
-//     color: $white;
-//     font-size: 18px;
-//     line-height: 1.5;
-//     font-weight: 700;
-//     padding: 24px 50px;
-//     position: relative;
-//     text-decoration: none;
-//     transition: top 250ms, left 250ms;
-//     top: -5px;
-//     left: -5px;
-
-//     &:hover,
-//     &:focus {
-//         top: 0;
-//         left: 0;
-//         text-decoration: none;
-//     }
-
-//     &::after {
-//         position: absolute;
-//         content: "";
-//         left: 6px;
-//         top: 6px;
-//         width: 100%;
-//         height: 100%;
-
-//         background-color: $white;
-//         border: 3px solid $color;
-//         transition: transform 250ms;
-//         z-index: -1;
-//     }
-
-//     &:hover::after,
-//     &:focus::after {
-//         transform: translate(-9px, -9px);
-//     }
-// }
-
-// .black-offset-button {
-//     @include offset-button($black);
-// }
-
-// p {
-//   font-family: Arial;
-//   margin: 50px auto;
-//   max-width: 400px;
-// }
-
 .offset {
   display: inline-block;
   border-radius: 4px;
@@ -153,7 +100,6 @@ h1 {
 
     &.Mui-selected {
       color: $white;
-      // border-bottom: red 1px solid;
     }
   }
 }
@@ -161,7 +107,6 @@ h1 {
 .MuiTabs-fixed {
   .MuiTabs-flexContainer {
     justify-content: center !important;
-    // border-bottom: 1px solid $white10;
   }
 }
 
@@ -181,17 +126,6 @@ h1 {
   &:hover {
     border: $white70 1px solid !important;
   }
-
-  // .MuiInputBase-input {
-  //   color: $white !important;
-  //   border: $white 1px solid !important;
-  //   border-radius: 4px;
-  //   background-color: transparent !important;
-
-  //   &:hover {
-  //     border:none;
-  //   }
-  // }
 }
 
 .news-letter-input {
@@ -220,6 +154,15 @@ h1 {
   }
 }
 
+.MuiInputBase-input {
+  font-size: 15px !important;
+  height: 13px !important;
+}
+
+.MuiBox-root {
+  padding: 0px !important;
+}
+
 // RESPONSIVENESS
 
 @media (max-width: 768px) {
@@ -230,5 +173,48 @@ h1 {
 
   .MuiInputBase-input {
     height: 5px !important;
+  }
+
+  .event-card-container {
+    // display: grid;
+    // grid-template-columns: repeat(2, 1fr);
+    // grid-gap: 1rem 3rem;
+    // grid-template-rows: masonry;
+    // display: grid;
+    column-count: 2;
+
+    .items-center {
+      margin: 0;
+ display: inline-block;
+ margin-bottom: 0px;
+ width: 100%;
+    }
+
+  }
+}
+
+@media (max-width: 576px) {
+  hr {
+    margin: 40px 0px;
+  }
+
+  .news-detail-container {
+    .interaction {
+      .MuiSvgIcon-root {
+        font-size: 16px;
+      }
+    }
+  }
+
+  .newsletter-container {
+    .news-letter-input {
+      .MuiBox-root {
+        width: 100%;
+      }
+
+      .MuiFormControl-root {
+        margin-left: 0px;
+      }
+    }
   }
 }
