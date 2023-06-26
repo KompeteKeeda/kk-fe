@@ -24,7 +24,6 @@ const EventsCard = ({
 }: EventProps) => {
 
   const handleSubmit = () => {
-
   };
 
   return (
@@ -38,7 +37,7 @@ const EventsCard = ({
             <p className="event-desc">{description}</p>
             <span className="key">Date : <span className="value">{String(date)}</span></span>
             <span className="key">Venue : <span className="value">{venue}</span></span>
-            <a className="offset secondary-btn on-dark" href=":;javascript">More details</a><br />
+            <a className="offset secondary-btn on-dark">More details</a><br />
           </div>
       </div>
     </Center>

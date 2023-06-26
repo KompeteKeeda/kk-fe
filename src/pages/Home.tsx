@@ -122,7 +122,7 @@ const Home = () => {
               venue={venue}
               date={timestamp}
               cover={coverUrl}
-              onClick={() => { navigate(`/news/${id}`) }} />
+              onClick={() => { navigate(`/event/${id}`) }} />
           ))}
         </div>
       </TabPanel>

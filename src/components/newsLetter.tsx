@@ -25,7 +25,6 @@ export const NewsLetter = () => {
     }
   };
 
-
   return (
     <div className="newsletter-container">
       <h1 className="display-4">Subscribe to our news letter</h1>

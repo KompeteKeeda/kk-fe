@@ -25,10 +25,19 @@ export const nfidLogin = async (authClient: AuthClient) => {
         reject();
       },
     });
+    authClient.logout({
+    });
   });
   await userService.createUser(authClient.getIdentity().getPrincipal().toString());
   return authClient.getIdentity();
 };
+
+export const clientLogout = async (authClient: AuthClient) => {
+  await new Promise(() => {
+  authClient.logout({
+  });
+  
+})};
 
 export const getAuthClient = async () =>
   await AuthClient.create({
