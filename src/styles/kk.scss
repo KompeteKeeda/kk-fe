@@ -219,6 +219,11 @@ h1 {
     }
   }
 }
+.MuiInputBase-input {
+font-size: 15px !important;
+    height: 13px !important;
+
+}
 
 // RESPONSIVENESS
 
@@ -230,5 +235,33 @@ h1 {
 
   .MuiInputBase-input {
     height: 5px !important;
+  }
+}
+
+@media (max-width: 576px) {
+.MuiBox-root {
+  padding: 0px !important;
+}
+  hr {
+    margin: 40px 0px;
+  }
+  .news-detail-container {
+    .interaction {
+      .MuiSvgIcon-root {
+        font-size: 16px;
+      }
+    }
+  }
+
+  .newsletter-container {
+    .news-letter-input {
+      .MuiBox-root {
+        width: 100%;
+      }
+
+      .MuiFormControl-root {
+        margin-left: 0px;
+      }
+    }
   }
 }
