@@ -181,19 +181,24 @@ h1 {
     // grid-gap: 1rem 3rem;
     // grid-template-rows: masonry;
     // display: grid;
+    display: block;
     column-count: 2;
 
     .items-center {
       margin: 0;
- display: inline-block;
- margin-bottom: 0px;
- width: 100%;
+      display: inline-block;
+      margin-bottom: 0px;
+      width: 100%;
     }
-
   }
 }
 
 @media (max-width: 576px) {
+  .event-card-container {
+    display: grid;
+    grid-template-columns: auto;
+  }
+
   hr {
     margin: 40px 0px;
   }
