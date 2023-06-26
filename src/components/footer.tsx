@@ -32,13 +32,14 @@ export const Footer = () => {
         <div className="socials">
           <h4>Connect with Us</h4>
           <div className="social-icons">
-           <a href="#"><FacebookIcon></FacebookIcon></a>
-            <a href="#"><InstagramIcon></InstagramIcon></a>
-            <a href="#"><TwitterIcon></TwitterIcon></a>
+            <a href="https://www.facebook.com/profile.php?id=100093211183839" target="_blank"><FacebookIcon></FacebookIcon></a>
+            <a href="https://www.instagram.com/kompetekeeda/" target="_blank"><InstagramIcon></InstagramIcon></a>
+            <a href="https://twitter.com/kompete_keeda" target="_blank"><TwitterIcon></TwitterIcon></a>
           </div>
         </div>
       </div>
-      <p className="copyright">© 2023 All Rights Reserved</p>
+      <p className="copyright">© 2023 All Rights & Wrongs Reserved
+      </p>
     </footer>
   )
 }

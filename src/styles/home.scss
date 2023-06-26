@@ -15,3 +15,20 @@
     margin-bottom: 30px;
   }
 }
+
+@media (max-width: 786px ){
+
+.event-card-container {
+  column-count: 2;
+  column-gap: 10px;
+
+  .event-card {
+    margin: 0;
+    display: grid;
+    grid-template-rows: 1fr auto;
+    margin-bottom: 10px;
+    break-inside: avoid;
+  }
+}
+
+}
