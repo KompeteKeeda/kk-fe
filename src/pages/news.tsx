@@ -45,33 +45,37 @@ export const NewsPage = () => {
         buttonText="Register Now"
         bannerSize="sm" />
 
-      
+
       {(news !== undefined) ? (
         <>
-          <h1>
-            {news.title}
-          </h1>
-
-          <div className="user-container">
-        <img src={coverImage} alt="" />
-        <span>Ashita Seth</span>
-        <span>|</span>
-        <span>16th July, 2023</span>
-      </div>
-          <img style={{ background: "white", color: "black" }} src={news.coverUrl.toString()} alt="news_cover"></img>
-          <h5>
-            {parse((news.content).toString())}
-          </h5>
+          <div className="news-detail-card">
+            <div className="news-image-container">
+              <img className="news-img" style={{ background: "white", color: "black" }} src={news.coverUrl.toString()} alt="news_cover"></img>
+            </div>
+            <div className="news-info-container">
+              <h1>
+                {news.title}
+              </h1>
+              <div className="user-container">
+                <img src={coverImage} alt="" />
+                <span>Ashita Seth</span>
+                <span>|</span>
+                <span>16th July, 2023</span>
+              </div>
+              <h5>
+                {parse((news.content).toString())}
+              </h5>
+              <div className="interaction">
+                <p>Did you like it?</p>
+                <ThumbUpAltIcon></ThumbUpAltIcon>
+                <ThumbDownAltIcon></ThumbDownAltIcon>
+              </div>
+            </div>
+          </div>
         </>
       ) : (
         <div>Loading...</div>
       )}
-      <div className="interaction">
-        <p>Did you like it?</p>
-        <ThumbUpAltIcon></ThumbUpAltIcon>
-        <ThumbDownAltIcon></ThumbDownAltIcon>
-      </div>
-
       <NewsLetter></NewsLetter>
     </div>
   )
