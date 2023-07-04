@@ -36,6 +36,7 @@ h1 {
 
 .offset {
   display: inline-block;
+  cursor: pointer;
   border-radius: 4px;
   padding: 12px 40px;
   text-decoration: none !important;
@@ -176,11 +177,6 @@ h1 {
   }
 
   .event-card-container {
-    // display: grid;
-    // grid-template-columns: repeat(2, 1fr);
-    // grid-gap: 1rem 3rem;
-    // grid-template-rows: masonry;
-    // display: grid;
     display: block;
     column-count: 2;
 
