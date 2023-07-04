@@ -5,7 +5,7 @@ interface BannerProps {
   description: string;
   imageUrl: string;
   redirectUrl: string;
-  buttonText: string;
+  // buttonText: string;
   bannerSize: string
 }
 
@@ -18,12 +18,7 @@ const Banner: React.FC<BannerProps> = (props) => {
           <div className="banner-info">
             <h1 className="banner-title">{props.title}</h1>
             <p className="banner-desc">{props.description}</p>
-            {/* <PrimaryButton label="Register Now" /> */}
-            <a className="offset primary-btn" href="#">Register Now</a><br />
-            {/* <a className="offset secondary-btn" href="#">Register Now</a><br /> */}
-            <p>
-              {/* <a href="#" className="black-offset-button">Offset Button</a> */}
-            </p>
+            <a className="offset primary-btn" href="">Coming Soon...</a><br />
           </div>
         </div>
       } {props.bannerSize == "sm" &&
@@ -34,14 +29,12 @@ const Banner: React.FC<BannerProps> = (props) => {
               <h1 className="banner-title">{props.title}</h1>
               <p className="banner-desc">{props.description}</p>
             </div>
-            <a className="offset primary-btn" href="#">Register Now</a>
+            <a className="offset primary-btn" href="">Coming Soon...</a>
           </div>
         </div>
       }
     </div>
   )
 }
-
-
 
 export default Banner;

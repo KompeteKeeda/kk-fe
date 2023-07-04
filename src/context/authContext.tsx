@@ -49,7 +49,7 @@ export const AuthContextProvider = ({ children }: React.PropsWithChildren) => {
     checkAuth();
   }, []);
 
-  const logout = async () => {
+   const logout = async () => {
     const authClient = await getAuthClient();
     await authClient.logout();
     setSession(null);

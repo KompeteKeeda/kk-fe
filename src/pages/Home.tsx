@@ -14,6 +14,7 @@ import { News } from "../model/news";
 import { NewsService } from "../services/newsService";
 import { EventsService } from "../services/eventsService";
 import { Events } from "../model/events";
+import { TablePagination } from "@mui/material";
 
 interface TabPanelProps {
   children?: React.ReactNode;
@@ -85,14 +86,31 @@ const Home = () => {
     fetchAllEvents();
   }, []);
 
+  //needs to be updated
+  const [page, setPage] = React.useState(2);
+  const [rowsPerPage, setRowsPerPage] = React.useState(10);
+
+  const handleChangePage = (
+    event: React.MouseEvent<HTMLButtonElement> | null,
+    newPage: number,
+  ) => {
+    setPage(newPage);
+  };
+
+  const handleChangeRowsPerPage = (
+    event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
+  ) => {
+    setRowsPerPage(parseInt(event.target.value, 6));
+    setPage(0);
+  };
+
   return (
     <div>
       <Banner
-        title="Join the Desi PUBG revolution"
+        title="Join the Desi Gaming revolution"
         description="Conquer the battleground with 'Desi Power'!"
         imageUrl="https://ik.imagekit.io/kompeteKeeda/1186797.jpg?updatedAt=1686496354756"
         redirectUrl="djksbffkb"
-        buttonText="Register Now"
         bannerSize="lg" />
       <Box className="m-t-md m-b-md" sx={{ borderBottom: 1, borderColor: 'divider' }}>
         <Tabs value={value} onChange={handleChange} aria-label="basic tabs example">
@@ -110,11 +128,20 @@ const Home = () => {
               cover={coverUrl}
               onClick={() => { navigate(`/news/${id}`) }} />
           ))}
+          {/* To implement pagination on the list */}
+          <TablePagination component="div"
+            count={24}
+            page={page}
+            onPageChange={handleChangePage}
+            rowsPerPage={rowsPerPage}
+            onRowsPerPageChange={handleChangeRowsPerPage}
+            >
+          </TablePagination>
         </div>
       </TabPanel>
       <TabPanel value={value} index={1}>
         <div className="event-card-container">
-        {allEvents.map(({ id, title, description, host, venue, prizePool, timestamp, coverUrl, endDate }) => (
+          {allEvents.map(({ id, title, description, host, venue, prizePool, timestamp, coverUrl, endDate }) => (
             <EventsCard
               id={id}
               title={title}
@@ -126,7 +153,7 @@ const Home = () => {
           ))}
         </div>
       </TabPanel>
-      <NewsLetter/>
+      <NewsLetter />
     </div>
   );
 };

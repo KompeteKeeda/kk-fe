@@ -42,9 +42,8 @@ export const NewsPage = () => {
         description="Conquer the battleground with 'Desi Power'!"
         imageUrl="https://ik.imagekit.io/kompeteKeeda/1186797.jpg?updatedAt=1686496354756"
         redirectUrl="djksbffkb"
-        buttonText="Register Now"
+        // buttonText="Register Now"
         bannerSize="sm" />
-
       <div className="user-container">
         <img src={coverImage} alt="" />
         <span>Ashita Seth</span>

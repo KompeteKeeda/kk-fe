@@ -33,8 +33,8 @@ export const Header = () => {
     <div className="header">
       <img src={logo}></img>
       <div className="action">
-        <a className="offset secondary-btn on-dark">Register Now</a><br />
-        {!isLoggedIn &&
+        <a className="offset secondary-btn on-dark">About Us</a><br />
+        {/* {!isLoggedIn &&
           <h2>
             <a className="offset primary-btn on-dark" onClick={login}>Login</a><br />
           </h2>
@@ -43,7 +43,7 @@ export const Header = () => {
           <h2>
             <a className="offset primary-btn on-dark" onClick={logout}>Logout</a><br />
           </h2>
-        }
+        } */}
       </div>
     </div>
   )

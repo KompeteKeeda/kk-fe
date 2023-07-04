@@ -5,7 +5,11 @@ import { UserService } from "../services/userService";
 const APPLICATION_NAME = "KompeteKeeda";
 const APPLICATION_LOGO_URL = "https://i.postimg.cc/RhwndcZn/Group-5.jpg";
 const AUTH_PATH =
-  "/authenticate/?applicationName=" + APPLICATION_NAME+"&applicationLogo="+APPLICATION_LOGO_URL+"#authorize";
+  "/authenticate/?applicationName=" +
+  APPLICATION_NAME +
+  "&applicationLogo=" +
+  APPLICATION_LOGO_URL +
+  "#authorize";
 const NFID_AUTH_URL = "https://nfid.one" + AUTH_PATH;
 const userService = new UserService();
 
@@ -25,19 +29,18 @@ export const nfidLogin = async (authClient: AuthClient) => {
         reject();
       },
     });
-    authClient.logout({
-    });
   });
-  await userService.createUser(authClient.getIdentity().getPrincipal().toString());
+  await userService.createUser(
+    authClient.getIdentity().getPrincipal().toString()
+  );
   return authClient.getIdentity();
 };
 
 export const clientLogout = async (authClient: AuthClient) => {
   await new Promise(() => {
-  authClient.logout({
+    authClient.logout({});
   });
-  
-})};
+};
 
 export const getAuthClient = async () =>
   await AuthClient.create({
