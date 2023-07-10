@@ -1,20 +1,20 @@
-import Banner from "../components/banner";
-import NewsCard from "../components/newscard";
-import EventsCard from "../components/eventscard";
-import Tabs from '@mui/material/Tabs';
-import Tab from '@mui/material/Tab';
-import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
-import "../styles/news-card.scss"
-import "../styles/event-card.scss"
+import Tab from '@mui/material/Tab';
+import TablePagination from "@mui/material/TablePagination/TablePagination";
+import Tabs from '@mui/material/Tabs';
+import Typography from '@mui/material/Typography';
 import React, { useEffect, useState } from "react";
-import { NewsLetter } from "../components/newsLetter";
 import { useNavigate } from "react-router-dom";
-import { News } from "../model/news";
-import { NewsService } from "../services/newsService";
-import { EventsService } from "../services/eventsService";
+import Banner from "../components/banner";
+import EventsCard from "../components/eventscard";
+import { NewsLetter } from "../components/newsLetter";
+import NewsCard from "../components/newscard";
 import { Events } from "../model/events";
-import { TablePagination } from "@mui/material";
+import { News } from "../model/news";
+import { EventsService } from "../services/eventsService";
+import { NewsService } from "../services/newsService";
+import "../styles/event-card.scss";
+import "../styles/news-card.scss";
 
 interface TabPanelProps {
   children?: React.ReactNode;
@@ -56,6 +56,8 @@ const Home = () => {
 
   const [allNews, setAllNews] = useState<News[]>([]);
   const [allEvents, setAllEvents] = useState<Events[]>([]);
+  const [limit, setLimit] = useState<number>(6);
+  const [offset, setOffset] = useState<number>(0);
 
   const navigate = useNavigate();
   const [value, setValue] = React.useState(0);
@@ -65,36 +67,44 @@ const Home = () => {
   };
 
   useEffect(() => {
-    // Function to make the API call
-    const fetchAllNews = async () => {
-      try {
-        const response = await newsService.getAllNews();
-        setAllNews(response);
-      } catch (error) {
-        console.log('Error fetching data:', error);
-      }
-    };
-    const fetchAllEvents = async () => {
-      try {
-        const response = await eventsService.getAllEvents();
-        setAllEvents(response);
-      } catch (error) {
-        console.log('Error fetching data:', error);
-      }
-    };
     fetchAllNews();
     fetchAllEvents();
-  }, []);
+  }, [offset]);
+
+  const fetchAllNews = async () => {
+    try {
+      console.log(offset);
+      console.log(limit);
+      const response = await newsService.getAllNews(offset, limit);
+      setAllNews(response);
+      console.log(allNews);
+      console.log(response);
+    } catch (error) {
+      console.log('Error fetching data:', error);
+    }
+  };
+
+  const fetchAllEvents = async () => {
+    try {
+      const response = await eventsService.getAllEvents();
+      setAllEvents(response);
+    } catch (error) {
+      console.log('Error fetching data:', error);
+    }
+  };
 
   //needs to be updated
-  const [page, setPage] = React.useState(2);
-  const [rowsPerPage, setRowsPerPage] = React.useState(10);
+  const [page, setPage] = React.useState(0);
+  const [rowsPerPage, setRowsPerPage] = React.useState(7);
 
   const handleChangePage = (
     event: React.MouseEvent<HTMLButtonElement> | null,
     newPage: number,
   ) => {
     setPage(newPage);
+    setLimit(limit);
+    setOffset(limit * newPage);
+    fetchAllNews();
   };
 
   const handleChangeRowsPerPage = (
@@ -107,10 +117,11 @@ const Home = () => {
   return (
     <div>
       <Banner
-        title="Join the Desi Gaming revolution"
+        title="Join the Desi PUBG revolution"
         description="Conquer the battleground with 'Desi Power'!"
         imageUrl="https://ik.imagekit.io/kompeteKeeda/1186797.jpg?updatedAt=1686496354756"
         redirectUrl="djksbffkb"
+        // buttonText="Register Now"
         bannerSize="lg" />
       <Box className="m-t-md m-b-md" sx={{ borderBottom: 1, borderColor: 'divider' }}>
         <Tabs value={value} onChange={handleChange} aria-label="basic tabs example">
@@ -128,14 +139,16 @@ const Home = () => {
               cover={coverUrl}
               onClick={() => { navigate(`/news/${id}`) }} />
           ))}
-          {/* To implement pagination on the list */}
+        </div>
+        {/* To implement pagination on the list */}
+        <div>
           <TablePagination component="div"
             count={24}
             page={page}
             onPageChange={handleChangePage}
             rowsPerPage={rowsPerPage}
             onRowsPerPageChange={handleChangeRowsPerPage}
-            >
+          >
           </TablePagination>
         </div>
       </TabPanel>
@@ -149,7 +162,7 @@ const Home = () => {
               venue={venue}
               date={timestamp}
               cover={coverUrl}
-              onClick={() => { navigate(`/event/${id}`) }} />
+              onClick={() => { navigate(`/news/${id}`) }} />
           ))}
         </div>
       </TabPanel>

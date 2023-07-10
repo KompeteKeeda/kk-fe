@@ -2,12 +2,12 @@ import { News } from "../model/news";
 import { CommonService } from "./commonService";
 
 export class NewsService {
-    private commonService = new CommonService();
+  private commonService = new CommonService();
 
   // method to get all news
-  getAllNews = async () => {
+  getAllNews = async (offset: number, limit: number) => {
     let newsList: News[] = [];
-    newsList = await this.commonService.getAgent().readAllNews(0, 10);
+    newsList = await this.commonService.getAgent().readAllNews(offset, limit);
     return newsList;
   };
 
